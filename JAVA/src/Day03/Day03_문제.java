@@ -20,7 +20,7 @@ public class Day03_문제 { // c   s
 			System.out.print("*");
 			if(i%5==0) System.out.println();
 		}
-		// 별문제 3 : 입력받은 줄 만큼 출력(올림차순) -> i= 줄 + s3 = 별
+		// 별문제 3 : 입력받은 줄 만큼 출력(올림차순) -> i= 줄 // s3 = 별
 		System.out.print("문제3) 줄수 : "); int line3 = scanner.nextInt();
 		for( int i = 1 ; i<=line3 ; i++  ) {
 			// * i는 1부터 입력받은 줄 수까지 1씩증가
