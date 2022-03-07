@@ -15,7 +15,7 @@ public class Day05_4 { // c  s
 		// 2-3. 회원가입시 중복체크
 		// 3. 로그인시 메뉴
 		// 3-1. 도서검색 // 3-2. 도서목록 // 3. 도서대여 // 4. 도서반납 // 5. 로그아웃
-		// + 도서검색시 도서명이 일치하면 도서명과 도서
+		// + 도서검색시 도서명이 일치하면 도서명과 도서대여여부 출력
 		// + 도서 목록시 모든 도서명 출력
 		// + 도서대여시 도서대여여부가 가능할때 도서대여 처리
 		// + 도서반납시 본인이 대여한 도서만 반납 처리
@@ -29,7 +29,7 @@ public class Day05_4 { // c  s
 		// 준비
 		Scanner scanner = new Scanner(System.in);
 		String[][] memberlist = new String[100][2]; // 회원
-		String[] booklist = new String[100]; // 도서
+		String[] booklist = new String[100]; // 도서 -> 도서명 
 		
 		while(true) {// w1 s
 			System.out.println("-------------------------");
@@ -61,6 +61,7 @@ public class Day05_4 { // c  s
 					}// for 2 e
 				}// for 1 e
 			} // if1 e
+			// 아이디 비번 맞는지 여부 체크
 			
 			// 로그인 페이지
 			else if(select1 ==2) {// if2 s
@@ -73,41 +74,106 @@ public class Day05_4 { // c  s
 				if(memberlist[i][0] != null && memberlist[i][0].equals(id) && memberlist[i][1].equals(pw))
 					{ System.out.println("알림)) 로그인 성공");
 					logincheck = true; } // if2 e
+				else {System.out.println("알림)) 아이디 혹은 비밀번호 오류 ");}
 				// 로그인 성공시 페이지
-					while(true) {
-						System.out.println("-------------로그인 페이지-------------");
-						System.out.println("1. 도서 등록\t 2. 도서 목록 \t3. 도서 삭제\t 4. 로그아웃");
-						int select2 = scanner.nextInt();
-						if (select2 == 1) {
-							System.out.println("------도서를 등록합니다------");
-							System.out.println("도서의 제목 : ");
-							String title = scanner.next();
-							for(int j = 0; j < booklist.length; j++) {
-								title = booklist[j];
+				if (memberlist[i][0] != null && memberlist[i][0].equals("admin") && memberlist[i][1].equals(pw))
+						while(true) { // w3 s 관리자 모드 로그인시
+							System.out.println("-------------관리자 페이지-------------");
+							System.out.println("1. 도서 등록\t 2. 도서 메뉴 \t3. 도서 삭제\t 4. 로그아웃");
+							System.out.println(">>>>>>>>> 선택 : ");
+							int 관리자선택 = scanner.nextInt();
+							if(관리자선택 == 1) { // 도서 등록
+								boolean bookcheck = true;
+								System.out.println("-------------도서 등록-------------");
+								System.out.println("등록할 도서명을 입력해주세요");
+								String 도서명 = scanner.next();
+								
+								for(int j = 0; j < booklist.length; j++) {// for1 s
+									if(memberlist[j]== null) { // if2 s
+										// i번째 행에 id가 없으면 = 빈공간
+										booklist[j] = 도서명;
+										bookcheck = true;
+										break; // 저장했으면 끝 [1번만 저장해야 하기 때문]
+											}  // if2 e
+									
+								for(int x = 0; x<booklist.length; x++) { // for 2 s
+									if(booklist[x] != null && booklist[x].equals(도서명) ) { // if 2 s
+										// 2. 입력받은 값과 j번째 인덱스값과 같은지 비교
+										System.err.println(" 알림)) 이미 있는 도서 입니다.[재입력]");
+										bookcheck = false; // 저장x 
+										break;
+										} // if 2 e
+									}// for 2 e
+								} // for 1 e
 							}
-						}
-						else if (select2 == 2) {
-							System.out.println("------도서 목록------");
-							for(int j = 0; j < booklist.length; j++) {
-								System.out.printf("도서 번호 : %d 도서명 : %s", j, booklist[i]);
-							}
-						}
-						else if (select2 == 3) {
 							
-						}
-						else if (select2 == 4) {
-							break;	
-						}
+							else if(관리자선택 == 2) { // 도서 메뉴
+								
+							}
+							else if(관리자선택 == 3) { // 도서 삭제
+								
+							}
+							else if(관리자선택 == 4) { // 로그아웃
+								break;
+							}
+							else System.out.println("잘못된 숫자입니다. 다시 입력해주세요");
+						} //  w3 e 관리자 모드 로그아웃
+				else
+					while(true) { // w2 s
+							System.out.println("-------------로그인 페이지-------------");
+							System.out.println("1. 도서 검색\t 2. 도서 목록 \t3. 도서 대여\t 4. 도서 반납\t 5. 로그아웃");
+							int select2 = scanner.nextInt();
+							if( select1 == 1) { // 도서 검색
+								System.out.println("------도서를 검색합니다------");
+								System.out.println("검색할 도서명 : ");
+								String title1 = scanner.next(); // 사용자
+								
+								for(int j = 0; j < booklist.length; j++) {
+									if(booklist[j] != null && booklist[j].equals(title1))
+										
+								{System.out.println("검색한 도서" + booklist[j] +"가 존재합니다.");}
+								}
+							}
+						
+							else if (select2 == 2) { // 도서 목록 출력
+								System.out.println("------도서 목록------");
+								for(int j = 0; j < booklist.length; j++) {
+									if(booklist[j] != null ) {
+									System.out.printf("도서 번호 : %d 도서명 : %s\n", j, booklist[i]); }
+								}
+							}
+							else if (select2 == 3) { // 도서 대여
+								System.out.println("------도서 대여------");
+								System.out.println("대여할 도서명을 입력하세요 : ");
+								String title2 = scanner.next(); // 대여할 도서명
+								for(int j = 0; j < booklist.length; j++) 
+										{ // 도서 대여 가능
+									if(booklist[j] == null) {
+										System.out.println("도서가 대여되었습니다."); }
+									if (booklist[j] != null) {
+											System.out.println("도서가 대여가 불가능합니다.");
+												}	
+										}
+								}
+							else if (select2 == 4) { // 도서 반납
+								System.out.println("------도서 반납------");
+								System.out.println("반납할 도서명을 입력하세요 : ");
+								String title3 = scanner.next();
+								for(int j = 0; j < booklist.length; j++) {
+									if(booklist[j] != null && booklist[j].equals(title3))
+									{System.out.println("도서가 반납되었습니다");}
+								}
+							}
+							else if (select2 == 5) { // 로그 아웃
+								break;
+								}
+							
 						
 						else System.out.println("잘못된 숫자입니다. 다시 입력해주세요");
-								}
-				} // 로그인 for e
-				
-				
-				
-				
-			}
-			else System.out.println("잘못된 숫자입니다. 다시 입력해주세요");
-		} // w1 e
+							} // w2 e
+						} // 로그인 for e
+				} // if 2 e
+				else System.out.println("잘못된 숫자입니다. 다시 입력해주세요");
+			} // w1 e
 	} // m  e
 } // c e
