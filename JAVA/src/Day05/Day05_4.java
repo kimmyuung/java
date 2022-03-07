@@ -89,26 +89,30 @@ public class Day05_4 { // c  s
 								String 도서명 = scanner.next();
 								
 								for(int j = 0; j < booklist.length; j++) {// for1 s
-									if(memberlist[j]== null) { // if2 s
+									if(booklist[j]== null) { // if2 s
 										// i번째 행에 id가 없으면 = 빈공간
 										booklist[j] = 도서명;
 										bookcheck = true;
 										break; // 저장했으면 끝 [1번만 저장해야 하기 때문]
 											}  // if2 e
 									
-								for(int x = 0; x<booklist.length; x++) { // for 2 s
-									if(booklist[x] != null && booklist[x].equals(도서명) ) { // if 2 s
+								for(int x = 0; x < booklist.length; x++) { // for 2 s
+									if(booklist[x] != null && booklist[x].equals(도서명) ) { // if 3 s
 										// 2. 입력받은 값과 j번째 인덱스값과 같은지 비교
 										System.err.println(" 알림)) 이미 있는 도서 입니다.[재입력]");
 										bookcheck = false; // 저장x 
 										break;
-										} // if 2 e
+										} // if 3 e
 									}// for 2 e
 								} // for 1 e
 							}
 							
 							else if(관리자선택 == 2) { // 도서 메뉴
-								
+								for(int j = 0; j < booklist.length; j++)
+								{
+									if(booklist[j] != null)
+									System.out.printf("등록된 도서 목록 : %s\n", booklist[j]);
+								}
 							}
 							else if(관리자선택 == 3) { // 도서 삭제
 								
