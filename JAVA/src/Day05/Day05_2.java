@@ -118,10 +118,6 @@ public class Day05_2 { // c  s
 			else if(select1 == 3) {break;}
 			else System.err.println("알림)) 알 수 없는 번호입니다. 다시 입력해주세요");
 		
-		
-		
 		} // w1  e
-		
-		
 	} // m  e
 } // c  e
