@@ -24,7 +24,7 @@ public class Day06_6 { // cs
 		// 프로그램 실행
 		while(true) { // w s [종료 = X]
 		
-		System.out.println("---------------------- 커뮤니티 ------------------------");
+		System.out.println("----- 커뮤니티 -----");
 		System.out.printf("%s\t%s\t%s \n", "번호", "내용", "제목");
 		int index = 0; // 인덱스 변수 [반복순서 체크]
 		// 모든 게시물조회
@@ -37,11 +37,11 @@ public class Day06_6 { // cs
 			
 		// 글쓰기와 글보기 메뉴
 		System.out.println("\n1. 글쓰기	2. 글보기");
-		System.out.println("------------------------------------------------------");
+		System.out.println("------------------------");
 		int select = scanner.nextInt();
 		if (select == 1) { // 1. 글쓰기 if1 s
 			// 1. 4개 변수를 입력받음
-			System.out.println("---------------------- 글 쓰기 페이지 ------------------------");
+			System.out.println("----- 글 쓰기 페이지 -----");
 			System.out.println("제목 : ");	String title = scanner.next();
 			System.out.println("내용 : ");	String context = scanner.next();
 			System.out.println("작성자 : ");	String writer = scanner.next();
@@ -65,11 +65,11 @@ public class Day06_6 { // cs
 								// 2-2 삭제시 : 비밀번호 입력받아 동일하면 삭제
 								// 2-3 수정시 : 작성자 비밀번호 입력받아 동일하면 제목만 내용만 수정
 			System.out.println("게시물 번호를 입력해주세요");
-			int bno = scanner.nextInt();
+			int bno = scanner.nextInt(); // 현 게시물 인덱스번호(=배열내 인덱스 값)
 			System.out.printf("작성자 : %s   제목 : %s\n", boardlist[bno].writer, boardlist[bno].title);
 			System.out.printf("내용 : %s\n" ,boardlist[bno].context);
 			// 반복문 사용 목적 X -> 출력할위치[인덱스] 입력 받았기 때문에 -> 입력받은 인덱스 위치에 객체 출력
-			System.out.println("---------------------- 글보기 메뉴 ------------------------");
+			System.out.println("------ 글보기 메뉴 -----");
 			System.out.println("1. 목록보기(뒤로가기) 2. 삭제 3. 수정");
 			System.out.println("-----> 선택 : ");
 			int select2 = scanner.nextInt();
@@ -105,13 +105,17 @@ public class Day06_6 { // cs
 							} // if 1 e
 				else { System.out.println("알림)) 비밀번호가 다릅니다 [삭제실패]"); }
 				} // 삭제 e
-			if(select2 == 3) { // 수정
+			
+			if(select2 == 3) { // 수정 s
 				System.out.println("알림)) 현 게시물 비밀번호 : "); String pw = scanner.next();
 				if(boardlist[bno].pw.equals(pw)) { // 게시물 객체내 비밀번호 == 입력한 비밀번호
-					System.out.println("알림)) 수정 성공");
+					// 해당 게시물의 제목과 내용을 새로 입력받아 현 게시물 객체 내 제목과 내용에 대입
+					System.out.println("수정할 제목을 입력하세요");
+					boardlist[bno].title = scanner.next(); 
 					System.out.println("수정하여 올릴 게시글을 입력해주세요");
-					String context = scanner.next();
-					context = boardlist[bno].context; // 해당 게시물에 null 대입 // 삭제 처리
+					boardlist[bno].context = scanner.next(); 
+					System.out.println("알림)) 내용이 수정되었습니다.");
+					// 해당 게시물에 null 대입 // 삭제 처리
 							}
 				else { System.out.println("알림)) 비밀번호가 다릅니다 [수정실패]"); }
 			
