@@ -23,7 +23,7 @@ public class 문제3 { // c  s
 //		else if(인명부[i].equals("이")) { leecount++; System.out.println("이씨 : " + leecount);}
 //		else if(인명부[i].equals("이재영")) {이재영++; System.out.println("이재영 반복 : " + 이재영);}
 //		}
-		// 문자열에서 중복을 찾으려면??
+		// 문자열에서 중복을 찾으려면?? 반복문을 사용 
 			
 	} // m  e
 } // c  e
