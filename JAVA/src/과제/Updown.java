@@ -25,7 +25,7 @@ public class Updown { // c s
 		// 1층은 현재층
 		else if(select2 == 2) { // 1층에서 2층으로 가는 경우
 			System.out.println("2층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("2층에 도착했습니다.");
@@ -33,7 +33,7 @@ public class Updown { // c s
 		
 		else if(select2 == 3) { // 1층에서 3층으로 가는 경우
 			System.out.println("3층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("3층에 도착했습니다.");
@@ -41,7 +41,7 @@ public class Updown { // c s
 		
 		else if(select2 == 4) { // 1층에서 4층으로 가는 경우
 			System.out.println("4층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("4층에 도착했습니다.");
@@ -49,7 +49,7 @@ public class Updown { // c s
 		
 		else if(select2 == 5) { // 1층에서 5층으로 가는 경우
 			System.out.println("5층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("5층에 도착했습니다.");
@@ -61,7 +61,7 @@ public class Updown { // c s
 		int select2 = scanner.nextInt();
 		if(select2 == 1) { // 2층에서 1층으로 가는 경우
 			System.out.println("1층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("1층에 도착했습니다.");
@@ -71,7 +71,7 @@ public class Updown { // c s
 		// 2층은 현재층
 		else if(select2 == 3) { // 2층에서 3층으로 가는 경우
 			System.out.println("3층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("3층에 도착했습니다.");
@@ -79,7 +79,7 @@ public class Updown { // c s
 		
 		else if(select2 == 4) { // 2층에서 4층으로 가는 경우
 			System.out.println("4층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("4층에 도착했습니다.");
@@ -87,7 +87,7 @@ public class Updown { // c s
 		
 		else if(select2 == 5) { // 2층에서 5층으로 가는 경우
 			System.out.println("5층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("5층에 도착했습니다.");
@@ -100,14 +100,14 @@ public class Updown { // c s
 		int select2 = scanner.nextInt();
 		if (select2 ==1 ) { // 3층에서 1층으로 가는 경우
 			System.out.println("1층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("1층에 도착했습니다.");
 		}
 		else if(select2 == 2) { // 3층에서 2층으로 가는 경우
 			System.out.println("2층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("2층에 도착했습니다.");
@@ -115,14 +115,14 @@ public class Updown { // c s
 		else if(select2 == 3) {System.out.println("알림)) 3층은 현재 층입니다.");}
 		else if(select2 == 4) { // 3층에서 4층으로 가는 경우
 			System.out.println("4층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("4층에 도착했습니다.");
 		}
 		else if(select2 == 5) { // 3층에서 5층으로 가는 경우
 			System.out.println("5층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("5층에 도착했습니다.");
@@ -134,21 +134,21 @@ public class Updown { // c s
 		int select2 = scanner.nextInt();
 		if(select2 == 1) {
 			System.out.println("1층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("1층에 도착했습니다.");
 		}
 		else if(select2 == 2) {
 			System.out.println("2층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("2층에 도착했습니다.");
 		}
 		else if(select2 == 3) {
 			System.out.println("3층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("3층에 도착했습니다.");
@@ -156,7 +156,7 @@ public class Updown { // c s
 		else if(select2 == 4) {System.out.println("알림)) 4층은 현재 층입니다.");}	
 		else if(select2 == 5) {
 			System.out.println("5층으로 이동합니다");
-			for(int i = 1; i<select2; i++) { // f s
+			for(int i = 1; i<=select2; i++) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("5층에 도착했습니다.");
@@ -169,28 +169,28 @@ public class Updown { // c s
 		int select2 = scanner.nextInt();
 		if(select2 == 1) {
 			System.out.println("1층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("1층에 도착했습니다.");
 		}
 		else if(select2 == 2) {
 			System.out.println("2층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("2층에 도착했습니다.");
 		}
 		else if(select == 3) {
 			System.out.println("3층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("3층에 도착했습니다.");
 		}
 		else if(select == 4) {
 			System.out.println("4층으로 이동합니다");
-			for(int i = 1; i<select2; i--) { // f s
+			for(int i = 1; i<=select2; i--) { // f s
 				 System.out.printf("%d\n", i);
 			} // f e
 			System.out.println("4층에 도착했습니다.");
