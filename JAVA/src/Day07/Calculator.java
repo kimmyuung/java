@@ -14,7 +14,7 @@ public class Calculator {
 		// 4. {실행 코드} : 함수 실행부
 	void powerOn() {// method s
 		// powerOn : 인수도 없음(), 반환도 없음(void)
-		System.out.println("전원을 킵니다.");	
+		System.out.println("전원을 킵니다.");
 	} // method e
 	
 	int plus(int x, int y) { // 인수 O, 반환 O
@@ -33,7 +33,7 @@ public class Calculator {
 		// (자료형) 변수명 : 강제형변환
 			// int 형 변수 -> double 변경 
 				// 나누기 후 소수점이 있을 수도 있기 때문
-		return result;
+		return result; // 결과값 -----> 메소드 호출한 곳으로 이동
 	}
 	void powerOff() {// method s
 		// powerOff : 인수도 없음(), 반환도 없음(void)
