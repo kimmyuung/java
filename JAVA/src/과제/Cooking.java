@@ -8,59 +8,59 @@ public class Cooking { // cs
 	public static void main(String[] args) { // ms
 	
 		// 라면레시피
-		// 초기메뉴   [1. 라면 선택      2. 라면 끓이기]
+		// 초기메뉴   [1. 레시피보기      2. 라면 끓이기]
 		// 0. 설계 
-		// 라면레시피 클래스를 만들어 넣음(재료 : 라면 1봉, 물, 계란, 파 -> 클래스의 필드
-		// 생성자 사용 O
-		// 1-1. 사용자로부터 먹는 라면 레시피를 입력받음
-		// 1-2. 레시피 등록(라면, 물, 계란, 파)
+		// 1-1. 사용자로부터 먹는 라면 레시피를 보고 라면을 끓이는 것을 입력받음
+		// 1-2. 중간 중간 확인을 위해 if문 사용
 		// 2. 라면을 끓이기 위한 조리과정 진행
-		// 분기 1 : 라면을 끓일 때 스프를 먼저 넣어야 되나 면을 먼저 넣어야 되나
 		// 변수 선언
 		Scanner scanner = new Scanner(System.in); // 입력 객체 선언
-		Ramen[] recipelist = new Ramen[100];
 		
 		while(true) { // w s
-		System.out.println("-------라면 조리---------"); // 초기 메뉴 출력
-		System.out.println("나만의 라면 레세피를 등록 후 라면을 맛있게 끓일 레시피를 공유하세요!(1개 기준)");
-		System.out.println("라면 종류\t 조리방법 "); // 
-		int index = 0; // 인덱스 변수 [반복순서 체크]
+		System.out.println("-------라면 조리---------(1인분 기준)"); // 초기 메뉴 출력
+		System.out.println("라면 종류 선택하고 조리방법을 배워보자 "); // 
+		System.out.print("1. 레시피 보기 2. 조리 시작하기");
+		int select = scanner.nextInt();
+		Ramen ramen = new Ramen();
 		
-		// 모든 게시물조회
-			for(Ramen temp : recipelist) { // for s
-				if(temp != null) { // if s
-				System.out.printf("%d  %s\t%s \n", index, temp.ramen, temp.cook);
-				} // if e ,
-				index++;
-			} // for e
-		System.out.println("1. 레시피 등록 2. 등록된 레시피 확인 ");
-		int select = scanner.nextInt();// 사용자로부터 실행시킬 메뉴를 입력받음
+		if(select ==1) { // if 1 s
+			System.out.println("라면 레시피를 봅니다.");
+			System.out.println("태진아 우유라면의 조리를 시작합니다");
+			System.out.println("준비물 : 라면, 김치, 콜라, 우유");
+			System.out.println("준비가되었으면 \"시작\"을 입력해주세요");
+			String select2 = scanner.next();
+			if (select2.equals(" \"시작\" ")) { // if 2 s
+				System.out.println("조리를 시작합니다");
+				System.out.println("1. 우유와 콜라를 각각의 냄비에 넣고 끓입니다.");
+				System.out.println("우유와 콜라가 다 끓었으면 2를 입력해주세요.");
+				int select3 = scanner.nextInt();
+					if(select3 == 2) { // if 3 s
+					System.out.println("2. 콜라가 김이 빠질 때까지 기다리면서 우유 속에 김치와 라면을 넣고 끓인다.");
+					System.out.println("우유와 라면이 끓고 나면 3을 입력해주세요");
+					int select4 = scanner.nextInt();
+						if (select4 == 3) { // if 4 s
+						System.out.println("3. 우유 라면이 끓고 나면 식은 콜라를 부어 섞어 준다");
+						System.out.println("조리 끝!!!!!");
+					} // if 4 e
+						else {System.out.println("오류]] 다시 입력해주세요");}
+				} // if 3 e
+			} // if 2 e
+
+		else if(select == 2) {
+			System.out.println("레시피를 보지 않고 조리를 시작합니다.");
+			System.out.println("1. 준비한 냄비에 물을 넣어주세요."); }
+			System.out.println("물이 끓으면 2를 입력해주세요.");
+			int select2_1 = scanner.nextInt();
+			if(select2_1 == 2) {
+				System.out.println("물이 끓었으면 건더기와 스프를 넣어주세요.");
+				System.out.println("넣고 3분 뒤 라면을 드시면 조리 완성!!!");
+			}
+			else {System.out.println("오류]] 다시 입력해주세요");}
+		} // if1 e
 		
-		if(select == 1) { // 레시피 등록
-			System.out.println("----- 라면 레시피 등록 페이지 -----");
-			System.out.println("라면종류 : ");	String ramen = scanner.next();
-			System.out.println("추가재료 : ");	String cook = scanner.next();
-			
-			Ramen recipe = new Ramen(ramen, cook); // 2개 필드를 가지는 생성자 사용
-			int i = 0; // 인덱스 변수[반복순서 체크]
-			for(Ramen temp : recipelist) { // for2 s
-			if(temp == null) { // if2 s -> 빈 공간을 찾으면
-				recipelist[i] = recipe; // 해당 인덱스에 새로운 객체 저장
-				break; // 한번 저장하면 반복문 종료
-				} // if2 e	
-				i++; // 인덱스를 1증가시킴
-			} // for2 e
-		}
+		else System.out.println("잘못된 번호를 입력했습니다. [재입력]");
 		
-		else if(select == 2) { // 등록된 레시피 확인
-			System.out.println("등록된 라면 레시피를 확인해주세요");
-			System.out.println("게시물 번호를 입력해주세요");
-			int bno = scanner.nextInt(); // 현 게시물 인덱스번호(=배열내 인덱스 값)
-			System.out.printf("추가재료 : %s   라면종류 : %s\n", recipelist[bno].cook, recipelist[bno].ramen);
-			
-			
-		}
-		else {System.out.println("알 수 없는 숫자입니다.[재입력]");}
+		
 		
 		
 		}// we
