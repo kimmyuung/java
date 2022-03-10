@@ -15,7 +15,7 @@ public class 문제4 { // c  s
 		System.out.println("숫자를 입력하세요"); int number = scanner.nextInt(); // 숫자를 입력받음
 		
 		// 	숫자배열에서 몇글자인지를 판단하려면?	for(int i = 1; i <= number.(); i++) //
-		
+		// 나머지 이용
 			System.out.println("입력받은 숫자에 해당하는 자릿수 " );
 		
 		
