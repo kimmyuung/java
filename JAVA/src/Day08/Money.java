@@ -105,6 +105,28 @@ public class Money {
 			i++;
 		}
 	}
+	void 이체 (){
+		// 1. 계좌번호를 입력받는다 . 계좌번호는 account에 있다.
+		// 2. 이체할 금액을 입력한다. 
+		// 3. 이체할 계좌를 입력한다. + (비밀번호 확인)
+		// 4. 비밀번호 확인 후 금액을 이체한다.
+		int index = 0;
+		System.out.println("계좌번호를 입력하세요."); int bnum = Day08_5.scanner.nextInt();
+		System.out.println("이체할 금액을 입력하세요"); int money = Day08_5.scanner.nextInt();
+		System.out.println("이체할 계좌를 입력하세요"); int bid = Day08_5.scanner.nextInt();
+		System.out.println("계좌 비밀번호를 입력하세요"); String pw = Day08_5.scanner.next();
+		for(Member temp : Day08_5.members) {
+			if(temp !=null && temp.password.equals("pw")) {
+				System.out.println("비밀번호와 일치합니다.");
+			}
+		for(Money temp2 : Day08_5.account) { // 보내는 계좌번호가 존재하는지 확인
+			if( temp2 != null && Day08_5.account[index].계좌번호 == bnum) { // 계좌번호가 존재하면
+				System.out.println("계좌이체가 완료되었습니다.");
+				Day08_5.account[bnum].돈 =  Day08_5.account[index].돈 + money;
+			}
+			
+		}
+		index++;
+	}
 	
-	
-}
+}}
