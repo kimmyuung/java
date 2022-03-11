@@ -35,7 +35,7 @@ public class Money {
 				if(temp==null) {
 					System.err.println("계좌개설 완료");
 					Day08_5.account[i]= money;	
-					break;
+					return;
 				}
 				i++;
 			}
@@ -49,7 +49,7 @@ public class Money {
 				if(temp==null) {
 					System.err.println("계좌개설 완료");
 					Day08_5.account[i]= money;
-					break;
+					return;
 				}
 				i++;
 				}
@@ -67,10 +67,12 @@ public class Money {
 		for(Member temp : Day08_5.members) {
 			if(temp!=null && temp.password.equals(pw)) {
 				System.out.println("비밀번호와 일치합니다.");
-				for(Money temp2 : Day08_5.account) {
+				for(Money i : Day08_5.account) {
+					if(temp!=null) {
 					System.out.println("입금되었습니다." + income);
-					income += temp2.돈;
-					break;}
+					 i.돈 += income;
+					return;}
+				}
 			}
 			else {System.out.println("비밀번호 오류");}
 		}

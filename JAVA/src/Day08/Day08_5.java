@@ -42,6 +42,7 @@ public class Day08_5 {
 					int 선택1 = scanner.nextInt();
 					if (선택1 == 1) {
 						money.계좌생성 ();
+						
 						}
 					if (선택 == 2) {
 						money.입금();
