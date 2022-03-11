@@ -14,7 +14,7 @@ public class Day08_5 {
 	
 	static Scanner scanner = new Scanner(System.in);
 	static Member [] members = new Member[1000];
-	static Money [] account = new Money[1000];
+	static Money[] account = new Money[1000];
 	
 	public static void main(String[] args) {
 			Day08_5 application = new Day08_5();
@@ -36,24 +36,35 @@ public class Day08_5 {
 					else System.err.println("회원가입 실패");
 				}
 				else if(선택==2) {
-					String result = member.로그인();
-					// 계좌메뉴
-					System.out.println("1.계좌생성 2.입금 3.출금 4.대출");
-					int 선택1 = scanner.nextInt();
-					if (선택1 == 1) {
-						money.계좌생성 ();
+						String result = member.로그인();
+						
+						if(result==null) {
+							System.out.println("동일한 회원이 있습니다.");
+						}
+						else {
+							System.err.println("로그인 완료");
+						// 계좌메뉴
+						while(true) {
+							System.out.println("---------ATM 서비스-------");
+							System.out.println("1.계좌생성 2.입금 3.출금 4.대출 5.로그아웃 선택: ");
+						int 선택1 = scanner.nextInt();
+						if (선택1 == 1) {
+							money.계좌생성 ();
+							}
+						else if (선택1 == 2) {
+							money.입금();
+						}
+						else if (선택1==3) {}
+						else if (선택1==4) {}
+						else if (선택1==5) {
+							break;
+						}
+						else System.out.println("알수없는 번호입니다.");
 						
 						}
-					if (선택 == 2) {
-						money.입금();
+						}
 					}
-					if(result==null) {
-						System.out.println("동일한 회원이 있습니다.");
-					}
-					else {
-						System.err.println("로그인 완료");
-					}
-				}
+				
 				else if(선택==3) {
 					member.아이디찾기();
 				}
@@ -62,11 +73,18 @@ public class Day08_5 {
 				}
 				else System.out.println("알수없는 번호입니다.");
 				
+			}
+				
 				
 			}
-		}
 		
-	
-	
+		//// 계좌메뉴 메소드
+		
+					
+			
+		
+		
+
+		
 	
 }

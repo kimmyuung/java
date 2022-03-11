@@ -57,24 +57,28 @@ public class Money {
 		}
 		System.out.println("계좌생성 완료");
 		System.out.printf("\n계좌번호  : %d", money.계좌번호);
-		
+		return;
 	}
 	void 입금 () {
+		boolean pwcheck = false;
 		System.out.println("입금을 시행합니다");
 		int income = Day08_5.scanner.nextInt();
 		System.out.println("비밀번호를 입력해주세요");
 		String pw = Day08_5.scanner.next();
+		int i = 0;
+		// 인덱스
 		for(Member temp : Day08_5.members) {
-			if(temp!=null && temp.password.equals(pw)) {
+			if(temp !=null && temp.password.equals(pw)) {
 				System.out.println("비밀번호와 일치합니다.");
-				for(Money i : Day08_5.account) {
-					if(temp!=null) {
-					System.out.println("입금되었습니다." + income);
-					 i.돈 += income;
-					return;}
-				}
-			}
+			
+			System.out.println("입금되었습니다." + income);
+					Day08_5.account[i].돈 += income;
+					 return;
+					 
+		}	
+			
 			else {System.out.println("비밀번호 오류");}
+			i++;
 		}
 	}
 	void 출금 () {
@@ -86,15 +90,27 @@ public class Money {
 			if(temp!=null && temp.password.equals(pw)) {
 				System.out.println("비밀번호와 일치합니다.");
 				for(Money temp2 : Day08_5.account) {
+					if(temp2 != null && temp2.돈 > outcome) {
 					System.out.println("출금되었습니다." + outcome);
 					outcome -= temp2.돈;
-					break;}
+					return;}
+					if(temp2 != null && temp2.돈 < outcome) {
+						System.out.println("잔액이 부족합니다.");
+						}
+					}
 			}
 			else {System.out.println("비밀번호 오류");}
+			return;
 		}
 	}
-	void 대출 () {
-		
+	void 대출 () { // 대출클래스 = 도서클래스 
+		// 1. 대출이름 2. 금액 3. 이자 4. 빌린아이디
+		System.out.println("계좌번호를 입력해주세요");
+		for(Member temp : Day08_5.members) {
+		if(temp !=null && temp.password.equals("pw")) {
+			
+			}
+		}
 	}
 	
 }
