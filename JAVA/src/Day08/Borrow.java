@@ -34,9 +34,13 @@ public class Borrow {
 			System.out.printf("\n총 상환해야하는 금액 : %d ", 상환 );
 			System.out.println("계좌에 돈을 입금합니다.");
 			int i = 0;
-			for(Money temp : Day08_5.account) {
+			for(Money money : Day08_5.account) {
+				if(money != null) {
 			Day08_5.account[i].돈 = Day08_5.account[i].돈 + borrow.금액;
-			i++;}
+			borrow.bid = Day08_5.members[i].id;
+			borrow.대출이름 = "일반 대출";
+			}}
+			i++;
 		}
 		else if(select ==2) {
 			System.out.println("대출을 원하는 금액을 입력하세요"); borrow.금액 = Day08_5.scanner.nextInt();
@@ -48,8 +52,12 @@ public class Borrow {
 			System.out.println("계좌에 돈을 입금합니다.");
 			int i = 0;
 			for(Money temp : Day08_5.account) {
-				Day08_5.account[i].돈 += Day08_5.account[i].돈 + borrow.금액;
-				i++;}
+				if(temp != null) {
+				Day08_5.account[i].돈 = Day08_5.account[i].돈 + borrow.금액;
+				borrow.bid = Day08_5.members[i].id;
+				borrow.대출이름 = "빠른 대출";
+				}}
+			i++;
 		}
 		else {System.out.println("알림)) 잘못된 숫자입니다.");}
 		

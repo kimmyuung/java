@@ -15,7 +15,7 @@ public class Day08_5 {
 	static Scanner scanner = new Scanner(System.in);
 	static Member [] members = new Member[1000];
 	static Money[] account = new Money[1000];
-	
+	static Borrow[] borrows = new Borrow[1000];
 	public static void main(String[] args) {
 			Day08_5 application = new Day08_5();
 			application.menu();
