@@ -47,7 +47,7 @@ public class Day08_5 {
 						// 계좌메뉴
 						while(true) {
 							System.out.println("---------ATM 서비스-------");
-							System.out.println("1.계좌생성 2.입금 3.출금 4.대출 5.로그아웃 선택: ");
+							System.out.println("1.계좌생성 2.입금 3.출금 4.대출 5.이체 6. 로그아웃 선택: ");
 						int 선택1 = scanner.nextInt();
 						if (선택1 == 1) {
 							money.계좌생성 ();
@@ -62,8 +62,9 @@ public class Day08_5 {
 							borrow.대출();
 						}
 						else if (선택1==5) {
-							break;
+							money.이체();
 						}
+						else if (선택1==6) {break;}
 						else System.out.println("알수없는 번호입니다.");
 						
 						}
