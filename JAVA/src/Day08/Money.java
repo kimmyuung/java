@@ -28,31 +28,31 @@ public class Money {
 		int select1 = Day08_5.scanner.nextInt();
 		if(select1 == 1) {
 			System.out.println("모바일 계좌를 개설합니다.");
-			System.out.println("예금종류를 입력해주세요");
-			//String 예금종류1 = scanner.next();
 			int  i =0;
 			for(Money temp : Day08_5.account) {
 				if(temp==null) {
 					System.err.println("계좌개설 완료");
 					Day08_5.account[i]= money;	
+					System.out.println("현재 회원님의 계좌 상태 : " + money.계좌번호);
 					return;
 				}
 				i++;
 			}
 			System.out.println("계좌생성 완료");
-			System.out.printf("\n계좌번호  : %d", money.계좌번호);	
+			System.out.printf("\n계좌번호  : %d", Day08_5.account[i].계좌번호);	
 		if(select1 == 2) {
 			System.out.println("계좌를 개설합니다.");
 			System.out.println("예금종류를 입력해주세요");
-			String 예금종류2 = Day08_5.scanner.next();
 			for(Money temp : Day08_5.account) {
 				if(temp==null) {
 					System.err.println("계좌개설 완료");
 					Day08_5.account[i]= money;
+					System.out.println("현재 회원님의 계좌 상태 : " + money.계좌번호);
 					return;
 				}
 				i++;
 				}
+			
 			}
 		}
 		System.out.println("계좌생성 완료");
@@ -82,35 +82,29 @@ public class Money {
 		}
 	}
 	void 출금 () {
-		System.out.println("출금을 시행합니다");
+		boolean pwcheck = false;
+		System.out.println("출금할 금액을 입력합니다");
 		int outcome = Day08_5.scanner.nextInt();
 		System.out.println("비밀번호를 입력해주세요");
 		String pw = Day08_5.scanner.next();
+		int i = 0;
+		// 인덱스
 		for(Member temp : Day08_5.members) {
-			if(temp!=null && temp.password.equals(pw)) {
-				System.out.println("비밀번호와 일치합니다.");
-				for(Money temp2 : Day08_5.account) {
-					if(temp2 != null && temp2.돈 > outcome) {
-					System.out.println("출금되었습니다." + outcome);
-					outcome -= temp2.돈;
-					return;}
-					if(temp2 != null && temp2.돈 < outcome) {
-						System.out.println("잔액이 부족합니다.");
-						}
-					}
-			}
-			else {System.out.println("비밀번호 오류");}
-			return;
-		}
-	}
-	void 대출 () { // 대출클래스 = 도서클래스 
-		// 1. 대출이름 2. 금액 3. 이자 4. 빌린아이디
-		System.out.println("계좌번호를 입력해주세요");
-		for(Member temp : Day08_5.members) {
-		if(temp !=null && temp.password.equals("pw")) {
+			if(temp !=null && temp.password.equals(pw)) {
+			System.out.println("비밀번호와 일치합니다.");
+			if(temp != null && Day08_5.account[i].돈 > outcome) 
+			{
+			System.out.println("출금되었습니다." + outcome);
+				Day08_5.account[i].돈 -= outcome;
+				 return; }
+			else {System.out.println("잔액이 부족합니다");}
+					 
+		}	
 			
-			}
+			else {System.out.println("비밀번호 오류");}
+			i++;
 		}
 	}
+	
 	
 }

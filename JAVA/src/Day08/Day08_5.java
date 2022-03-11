@@ -28,6 +28,7 @@ public class Day08_5 {
 				
 				Member member = new Member();
 				Money money = new Money();
+				Borrow borrow = new Borrow();
 				if(선택==1) {
 					boolean result = member.회원가입();
 					if(result) {
@@ -54,8 +55,12 @@ public class Day08_5 {
 						else if (선택1 == 2) {
 							money.입금();
 						}
-						else if (선택1==3) {}
-						else if (선택1==4) {}
+						else if (선택1==3) {
+							money.출금();
+						}
+						else if (선택1==4) {
+							borrow.대출();
+						}
 						else if (선택1==5) {
 							break;
 						}
