@@ -13,53 +13,136 @@ public class 은행컨트롤러 {
 // 뷰에서 요청하는 서비스[기능]를 제공
 	// 1. 계좌생성 2. 입금 3. 출금 4. 이체 5. 계좌목록 6. 대출
 	// 1. 생성 (Create)
-	public boolean 생성(String pw, String name, int bnum) {
-		// 1. 입력받은 값을 가져옴[인수]
-			// 계좌번호 자동생성
-		Random random = new Random(); // 4자리 생성
-		int 난수 = random.nextInt(10000); // 0~9999 사이
-		String 계좌번호 = String.format("%04d", 난수);
-		// %d : 정수, %4d 정수 4자리[만일 자릿수 없으면 공백처리]
-		// %04d 정수 4자리[만일 자릿수 없으면 0처리]
-		
-		// 2. 객체화(다수의 변수를 하나의 객체로 만들기)
-		if(bnum == 1) {
-			Bank temp = new 국민은행("0", pw, name, 0);
-		}
-		else if(bnum == 2) {
-			Bank temp = new 신한은행("0", pw, name, 0);
-		}
-		else if(bnum == 3) {
-			Bank temp = new 하나은행("0", pw, name, 0);
-		}
-		// 3. 배열에 저장
-		int i = 0;
-		for(Bank temp2 : Day09_6_은행계좌프로그램.계좌리스트) {
-			if(temp2 == null) {
-				Day09_6_은행계좌프로그램.계좌리스트[i] = temp2;
-				System.out.println("*** 계좌 등록 ***");
-				return true;
+	public String 계좌생성( String 비밀번호 , String 계좌주 , int 은행번호) {
+		// 1. 입력받은 값을 가져온다 [ 인수 ] 
+			String 계좌번호 = null ; // 선언만 [ 이유 : while 안에서 선언시 while 안에서 사용가능 ]
+			while(true) { // 무한루프 [ 종료조건 : 난수가 중복이 없을경우 ] 
+				// 계좌번호 자동생성 
+				Random random = new Random(); // 랜덤 
+				// 4자리 생성 
+				int 난수 = random.nextInt(10000); // 0~9999 사이 
+				계좌번호 = String.format("%04d", 난수  );  // %04d : 4자리 정수형 [ 빈칸은 0 처리 ]
+				// 중복체크
+				Boolean 계좌번호중복 = false; 
+				for( Bank temp2 : Day09_6_은행계좌프로그램.계좌리스트 ) {
+					if( temp2 != null && temp2.getBnum().equals(계좌번호) ) { // 기존 배열내 계좌번호와 동일하면 
+						계좌번호중복 = true;
+					}
+				}
+				// 만일 중복이 없으면 
+				if( 계좌번호중복 == false ) break; // 무한루프 종료 
 			}
-			i++;
+		// 2. 객체화[ 다수의 변수를 하나의 객체로 만들기 ]
+			Bank temp = null; // 빈 객체 선언
+			if( 은행번호 == 1 ) { 			temp = new 국민은행(계좌번호 , 비밀번호 , 계좌주 , 0 ); }
+			else if( 은행번호 == 2 ) { 	temp = new 신한은행(계좌번호 , 비밀번호 , 계좌주 , 0 ); }
+			else if( 은행번호 == 3 ) { 	temp = new 하나은행(계좌번호 , 비밀번호 , 계좌주 , 0 ); }
+		// 3. 배열에 저장
+		int i = 0 ; // 인덱스 
+		for( Bank temp2 : Day09_6_은행계좌프로그램.계좌리스트) {
+			if( temp2 == null ) { // 해당 temp2가 공백이면 
+				Day09_6_은행계좌프로그램.계좌리스트[i] = temp; // 공백 인덱스에 저장 
+				return 계좌번호; // 계좌번호가 존재하면 성공했다는 의미 
+			}
+			i++; // 인덱스 증가
 		}
-		return false;
+		return null;  // null 이면 실패했다는 의미
 	}
-	
+			
 	// 2. 입금 (Update)
-	public boolean 입금 () {
+	public boolean 입금 (String 계좌번호, int 입금액) {
+		// 1. 동일한 계좌번호를 찾음
+		int i = 0;
+		for(Bank temp : Day09_6_은행계좌프로그램.계좌리스트) 
+			{
+			if(temp != null &&temp.getBnum().equals(계좌번호)) 
+				{// 해당 계좌가 공백이 아니고 입력한[인수]과 같으면
+				Day09_6_은행계좌프로그램.계좌리스트[i].setBmoney(입금액);
+				// Setter = 기존금액 + 새로운 입금액
+				return true;
+				}
+			i++;
+			}
 		return false;
 	}
 	// 3. 출금 (Update)
-	public boolean 출금 () {
-		return false;
+	public int 출금 (String 계좌번호, String 비밀번호,
+			int 출금액) {
+		
+		// 1. 동일한 계좌번호를 찾아서
+		// 2. 해당 계좌번호와 비밀번호가 일치하는지
+		// 3. 비밀번호가 일치하면 출금 처리
+		// 4. 비밀번호가 불일치하면 출금 취소
+		// 5. 만일 예금액보다 출금액이 더 크면 잔액부족 출력
+		int i = 0;
+		for(Bank temp : Day09_6_은행계좌프로그램.계좌리스트) {
+			if(temp != null && temp.getBnum().equals(계좌번호) && temp.getPw().equals(비밀번호)) 
+			{
+				{ if(temp.getBmoney() < 출금액) {return 1;}
+				else {
+					Day09_6_은행계좌프로그램.계좌리스트[i].setBmoney(temp.getBmoney()-출금액);
+					return 2;}
+					}
+				}
+			i++;	
+			}
+		return 3; // 동일한 정보가 아닐경우 실패 의미 반환, 출금실패
 	}
 	// 4. 이체 (Update)
-	public boolean 이체 () {
-		return false;
+	public int 이체 (String 계좌번호, String 비밀번호, 
+		int 이체금액, String 받는계좌) 
+	{
+		// 본인 계좌, 비밀번호, 이체금액, 받는사람 계좌번호
+		// 1. 동일한 계좌번호와 비밀번호 찾기
+		// 2. 받는계좌를 찾기
+		// 3. 본인계좌에서 이체금액을 빼기
+		// 3-1. 받는계좌에서 이체금액 더하기
+		// 경우의 수 : 1. 성공 2. 실패(본인계좌 정보 틀림, 받는계좌 정보 틀림, 잔액 부족 등)
+		int i = 0; // 본인 인덱스 위치 변수
+		for( Bank temp : Day09_6_은행계좌프로그램.계좌리스트 ) { // 본인 = 보내는사람 계좌는 temp
+			if( temp != null && temp.getBnum().equals(계좌번호) &&  
+					temp.getPw().equals(비밀번호) ) {
+				int j = 0; ; // 받는사람계좌 인덱스 위치 변수
+				for( Bank temp2 : Day09_6_은행계좌프로그램.계좌리스트 ) { // 받는 사람 계좌는 temp2 
+					if( temp2 !=null & temp2.getBnum().equals(받는계좌) ) {
+						
+						if( temp.getBmoney() < 이체금액 ) {
+							return 1;// 잔액부족 
+						}else {
+							Day09_6_은행계좌프로그램.계좌리스트[i].setBmoney(temp.getBmoney() - 이체금액 );
+							Day09_6_은행계좌프로그램.계좌리스트[j].setBmoney(temp.getBmoney() + 이체금액);
+							return 2;
+							// 성공 
+						}
+					}
+					j++;
+				}
+			}
+			i++;
+		}
+		// 본인계좌 정보가 없을경우
+		return 4;
 	}
 	// 5. 계좌목록 (Reading)
-	public boolean 계좌목록 () {
-		return false;
+	public Bank[] 계좌목록 (String name) {
+	// 입력받은 계좌주의 계좌목록을 만들어서 반환  
+		// 동일한 계좌주의 계좌를 찾아서 배열담아 넘김
+		Bank[] 내계좌목록 = new Bank[100];
+		for(Bank temp : Day09_6_은행계좌프로그램.계좌리스트) {
+			if(temp != null && temp.getName().equals(내계좌목록)) {
+				// 해당 계좌내 계좌주와 인수의 계좌주와 동일하면
+				// 내계좌목록 배열내 빈공간을 찾아서 내 계좌목록에 넣기
+				int i = 0;
+				for(Bank temp2 : 내계좌목록) {
+					if(temp2 == null ) {
+						내계좌목록[i] = temp;
+						break;
+					}
+					i++;
+				}
+			}
+		}
+		return 내계좌목록;
 	}
 	// 6. 대출
 	public boolean 대출 () {
