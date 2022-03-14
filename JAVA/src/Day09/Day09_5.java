@@ -13,7 +13,8 @@ public static void main(String[] args) {
 	case 1 : 
 		System.out.println("앞왼쪽 한국타이어 교체");
 		mycar.frontLeftTire = new HankookTire(15, "앞왼쪽");
-		// 슈퍼클래스 객체명 = new 서브클래스();
+		// 슈퍼클래스 객체명 = new 서브클래스(); 
+		// 상속을 받으면 가능!!!
 		break;
 	case 2 : 
 		System.out.println("앞오른쪽 한국타이어 교체");
@@ -30,7 +31,7 @@ public static void main(String[] args) {
 		mycar.backRightTire = new KumhoTire(17, "뒤오른쪽");
 		// 슈퍼클래스 객체명 = new 서브클래스();
 		break;
-	
+	// 동시에 도는 것이 아니기때문에 마지막 바퀴가 펑크가 잘 안남!
 			}
 	System.out.println("---------------");
 		}	
