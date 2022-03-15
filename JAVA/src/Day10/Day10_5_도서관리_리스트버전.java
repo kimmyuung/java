@@ -1,3 +1,4 @@
+package Day10;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class Day10_5_도서관리_리스트버전
 		Scanner sc = new Scanner(System.in);
 		while (true)
 		{
-			System.out.println("1. 등록 2. 목록 3. 삭제 4. 수정");
+			System.out.println("1. 등록 2. 목록 3. 삭제 4. 저자 수정");
 			int ch = sc.nextInt();
 			if(ch == 1) {
 				// 1. 입력받기
@@ -35,8 +36,27 @@ public class Day10_5_도서관리_리스트버전
 				for(Book book : booklist) {
 				System.out.println(book.get도서명() + "\t" + book.get저자() );}
 			}
-			else if (ch == 3) {}
-			else if (ch == 4) {}
+			else if (ch == 3) {
+				// 1. 배열[삭제후에 뒤 인덱스 당기기] vs 인덱스[자동]
+				// 1 2 3 4 [2삭제] -> 1 null 3 4 vs 1 2 3 -> 1 3 4
+				System.out.println("삭제할 도서명 : "); String name = sc.next();
+				for(Book book : booklist) {
+					if(book.get도서명().equals(name)) {
+						booklist.remove(book);
+						break; // 삭제 성공했으면 탈출
+					}
+				}
+			}
+			else if (ch == 4) {
+				System.out.println("수정할 도서명 : "); String name = sc.next();
+				for(Book book : booklist) {
+					if(book.get도서명().equals(name)) {
+						System.out.println("수정 저자 :"); String writer = sc.next();
+						book.set저자(writer);
+					}
+				}
+			}
 		}
-	}
+	
+}
 }
