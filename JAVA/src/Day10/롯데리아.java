@@ -14,11 +14,16 @@ public class 롯데리아 extends 점포
 	
 // 2. 생성자
 	public 롯데리아() {
-		상품 상품 = new 상품("새우버거", 10, 1000);
-		상품 상품2 = new 상품("불고기버거", 10, 2000);
-		상품리스트.add(상품); 상품리스트.add(상품2);
-		
+//		상품 상품 = new 상품("새우버거", 10, 1000);
+//		상품 상품2 = new 상품("불고기버거", 10, 2000);
+//		상품리스트.add(상품); 상품리스트.add(상품2); // 상품 추가
 	}
+public 롯데리아(String 점주, ArrayList<상품> 상품리스트)
+{
+	super();
+	this.점주 = 점주;
+	this.상품리스트 = 상품리스트;
+}
 // 3. 메소드
 	@Override // 오버라이딩 [재정의]
 	public void 제품목록() {
@@ -40,11 +45,11 @@ public class 롯데리아 extends 점포
 		// 2. 객체 [ 여러 변수 -> 하나 객체 ]
 		상품 상품 = new 상품(상품명, 재고, 가격);
 		// 3. 리스트에 저장
-		상품리스트.add(상품);
+		상품리스트.add(상품); 
 		// 4. 파일 처리
-		try { // 예외(오류)가 발생할 것 같은 코드 묶음(예상)
-		FileOutputStream outputStream = new FileOutputStream("D/java/롯데리아재고.txt");
-		String 내보내기 = 상품명 + ","+ 재고 +"," + 가격;
+		try { // 예외(오류)가 발생할 것 같은 코드 묶음(예상)				// 파일 경로 , 이어쓰기=true(옵션)
+		FileOutputStream outputStream = new FileOutputStream("D:/자바/롯데리아재고.txt", true);
+		String 내보내기 = 상품명 + ","+ 재고 +"," + 가격 + "\n"; // , : 필드 구분용   \n : 제품구분
 		outputStream.write(내보내기.getBytes() );
 		}catch(Exception e) { // 오류 처리 잡기 : Exception 클래스
 			
