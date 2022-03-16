@@ -27,12 +27,12 @@ public static void main(String[] args) { // ms
 		System.out.println("번호   이름    국어   영어   수학   총점   평균    석차");
 		for(int i=0; i<name.length; i++) {
 			if(name[i] != null && kor[i] != 0)
-			System.out.print("번 호 : " + i);	
-			System.out.print("이 름 : " + name[i] + " | ");
-			System.out.print("총 점 : " + tot[i] + "점 | ");
+			System.out.println("번 호 : " + i);	
+			System.out.println("이 름 : " + name[i] + " | ");
+			System.out.println("총 점 : " + tot[i] + "점 | ");
 			
 			System.out.printf("평 균 : %.2f점 | ", avg[i]);
-			System.out.print("석 차 : " + rank[i] + "등");
+			System.out.println("석 차 : " + rank[i] + "등");
 			System.out.println();
 			break;
 		}
@@ -75,7 +75,7 @@ public static void main(String[] args) { // ms
 			}
 				
 				
-		// 출력
+		
 		
 			}
 		else if(ch==2) {		}	

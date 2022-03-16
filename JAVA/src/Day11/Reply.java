@@ -1,54 +1,53 @@
 package Day11;
 
-public class Reply
-{
-	// 1. field
+public class Reply {
+	// 1. 필드
 	private String content;
-	private String pw;
+	private String password;
 	private String writer;
 	private String date;
-	// 2. constructor
+	// 2. 생성자
 		// 1. 빈생성자
-	Reply() {}
-		// 2. 게시물등록 시 사용되는 생성자
-	public Reply(String content, String pw, String writer, String date)
-	{
+	public Reply() {}
+		// 2. 풀생성자
+	public Reply(String content, String password, String writer, String date) {
 		this.content = content;
-		this.pw = pw;
+		this.password = password;
 		this.writer = writer;
 		this.date = date;
-	}	
-	// 3. method
-	public String getContent()
-	{
+	}
+		// 3. 댓글등록시 사용되는 생성자
+	public Reply(String content, String password, String writer) {
+		this.content = content;
+		this.password = password;
+		this.writer = writer;
+	}
+	// 3. 메소드 
+	public String getContent() {
 		return content;
 	}
-	public void setContent(String content)
-	{
+	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getPw()
-	{
-		return pw;
+	public String getPassword() {
+		return password;
 	}
-	public void setPw(String pw)
-	{
-		this.pw = pw;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getWriter()
-	{
+	public String getWriter() {
 		return writer;
 	}
-	public void setWriter(String writer)
-	{
+	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getDate()
-	{
+	public String getDate() {
 		return date;
 	}
-	public void setDate(String date)
-	{
+	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	
+	
 }
