@@ -141,7 +141,12 @@ public class Day05_4
 								}
 							} else if (관리자선택 == 3)
 							{ // 도서 삭제
-
+								for (int j = 0; j < booklist.length; j++)
+								{
+									if (booklist[j] != null) {
+										booklist[j] = null;
+									}
+								}
 							} else if (관리자선택 == 4)
 							{ // 로그아웃
 								break;
