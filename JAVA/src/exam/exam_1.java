@@ -14,7 +14,6 @@ public static void main(String[] args) { // ms
 //	8. 총점을 이용하여 석차를 구합니다. [ 5점 ]
 //	9. 입력 오류에 대하여 예외발생 상황에 대한 처리를 합니다. [ 5점 ]
 	String[] name = new String [100]; // 학생이름
-	int [][] scores = new int[100][3]; // 과목점수
 	int [] ranks = new int[100]; // 석차
 	int[] kor = new int[name.length];
 	int[] eng = new int[name.length];
@@ -27,11 +26,15 @@ public static void main(String[] args) { // ms
 		System.out.println("성      적      표");
 		System.out.println("번호   이름    국어   영어   수학   총점   평균    석차");
 		for(int i=0; i<name.length; i++) {
+			if(name[i] != null && kor[i] != 0)
+			System.out.print("번 호 : " + i);	
 			System.out.print("이 름 : " + name[i] + " | ");
 			System.out.print("총 점 : " + tot[i] + "점 | ");
+			
 			System.out.printf("평 균 : %.2f점 | ", avg[i]);
 			System.out.print("석 차 : " + rank[i] + "등");
 			System.out.println();
+			break;
 		}
 		System.out.println("[1. 학생점수 등록 2. 학생점수 삭제");
 		int ch = sc.nextInt();
