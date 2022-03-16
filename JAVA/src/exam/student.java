@@ -2,7 +2,7 @@ package exam
 
 public class student {
 	
-	// ÇÊµå
+	// field
 	private String name;
 	private int kor;
 	private int eng;
@@ -11,12 +11,12 @@ public class student {
 	private double ave = total/3;
 	
 	
-	// »ı¼ºÀÚ
+	// constructor
 	public student() {
 		
 	}
 
-
+	// ìƒì„±ì
 	public student( String name, int kor, int eng, int math, int total, double ave) {
 		this.name = name;
 		this.kor = kor;
@@ -27,7 +27,7 @@ public class student {
 	}
 
 
-
+	//method
 	public String getName() {
 		return name;
 	}
