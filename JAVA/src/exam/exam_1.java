@@ -2,67 +2,85 @@ package exam;
 
 import java.util.Scanner;
 
-public class exam_1
-{
-// 성적표 출력
-	// 초기메뉴 [1. 학생점수 등록 2. 학생점수 삭제]
-	// 입력받는 것 : 이름 , 국어, 영어, 수학
-	// 성적 입력은 5명으로 하되 100명까지 가능하도록 작성
-	// 평균은 소숫점 이하2자리까지
-	// 석차대로 출력
-public static void main(String[] args)
-{
-	String [] 학생이름 = new String[100];
-	int [][] 점수 = new int[100][3];
+public class exam_1 { // ce
+public static void main(String[] args) { // ms
+//	1. 성적표는 항상 출력이 되어 있도록 합니다. [ 10점 ]
+//	2. 메뉴에서 1번 선택시 학생점수를 추가 합니다. [ 5점 ]
+//	3. 메뉴에서 2번 선택시 학생점수를 삭제 합니다. [ 5점 ]
+//	4. 데이터는 키보드로 입력받아 배열에 저장합니다. [ 5점 ]
+//	5. 성적 입력은 5명으로 하되, 최대 100명 이 가능하도록 작성합니다. [ 5점 ]
+//	6. 번호 이름, 국어, 영어, 수학을 입력하고, 총점과 평균을 구하여 출력합니다. [ 5점 ]
+//	7. 평균은 소숫점 이하 2자리까지로 합니다. [ 5점 ]
+//	8. 총점을 이용하여 석차를 구합니다. [ 5점 ]
+//	9. 입력 오류에 대하여 예외발생 상황에 대한 처리를 합니다. [ 5점 ]
+	String[] name = new String [100]; // 학생이름
+	int [][] scores = new int[100][3]; // 과목점수
+	int [] ranks = new int[100]; // 석차
+	int[] kor = new int[name.length];
+	int[] eng = new int[name.length];
+	int[] mat = new int[name.length];
+	int[] tot = new int[name.length];
+	double[] avg = new double[name.length];
+	int[] rank = new int[name.length];
 	Scanner sc = new Scanner(System.in);
-	while(true) {
-		System.out.println(" ----- 학생 성적부 ----- ");
-		System.out.println("[1. 학생점수 등록 2. 학생점수 삭제"); 
-		
+	while(true) { // w1 s
+		System.out.println("성      적      표");
+		System.out.println("번호   이름    국어   영어   수학   총점   평균    석차");
+		for(int i=0; i<name.length; i++) {
+			System.out.print("이 름 : " + name[i] + " | ");
+			System.out.print("총 점 : " + tot[i] + "점 | ");
+			System.out.printf("평 균 : %.2f점 | ", avg[i]);
+			System.out.print("석 차 : " + rank[i] + "등");
+			System.out.println();
+		}
+		System.out.println("[1. 학생점수 등록 2. 학생점수 삭제");
 		int ch = sc.nextInt();
-	if(ch == 1) {
-		System.out.println("학생 이름을 입력하세요."); String name = sc.next();
-		System.out.println("국어 점수를 입력하세요"); int kor = sc.nextInt();
-		System.out.println("수학 점수를 입력하세요"); int math = sc.nextInt();
-		System.out.println("영어 점수를 입력하세요"); int eng = sc.nextInt();
-		for(int i = 0; i<학생이름.length; i++) {
-			if(학생이름[i] == null) {
-				System.out.println("학생 이름 등록 성공");
-				학생이름[i] = name; 
-				break;
+		if(ch == 1) {
+			for(int i=0; i<name.length; i++) {
+				//// 이름과 각 과목의 점수 배열에 저장 ////
+				System.out.print("학생 이름 입력 : ");
+				name[i] = sc.next();
+				
+				System.out.print("국어 점수 입력 : ");
+				kor[i] = sc.nextInt();
+				
+				System.out.print("영어 점수 입력 : ");
+				eng[i] = sc.nextInt();
+				
+				System.out.print("수학 점수 입력 : ");
+				mat[i] = sc.nextInt();
+				
+				System.out.println("**********************");
+				
+				//// 총점과 평균과 학점 구하기 ////
+				// 총점
+				tot[i] = kor[i] + eng[i] + mat[i];
+				// 평균
+				avg[i] = tot[i] / 3.0;
+				
+				// 석차
+				// 모든 학생은 본인이 1등이라고 생각한다.
+				rank[i] = 1; break;
+			} // 석차
+			for(int i=0; i<rank.length; i++) {
+				for(int j=0; j<rank.length; j++) {
+					if(tot[i] < tot[j]) {
+						// 총점이 다음 사람보다 적으면 내 등수가 1++
+						rank[i]++; 
+					}
 				}
-		}
-		for(int i = 0; i<점수.length; i++) {
-			if(점수[i][0] == 0) {
-				점수[i][0] = kor;
-				점수[i][1] = math;
-				점수[i][2] = eng;
-				System.out.println("점수등록 성공");
-				break;
 			}
-		}
-		System.out.print("이름\t 국어\t 수학\t 영어\t 총점\t 평균\t 석차\t \n");
+				
+				
+		// 출력
 		
-	}
-	else if(ch == 2) {
-		System.out.println("삭제할 학생의 이름을 입력하세요"); String name = sc.next();
-		for(int i = 0 ; i<학생이름.length; i++) {
-			if(학생이름[i] != null && 학생이름[i].equals(학생이름)) {
-				학생이름[i] = null; 점수[i][0] -= 0; 점수[i][1] -= 0; 점수[i][2] -= 0;
-				break;
 			}
-		}	
-	}
-	else {System.out.println("잘못된 숫자를 입력하셨습니다. 다시 입력하세요");}
-	for(int i = 0; i<점수.length; i++) {
-		if(점수[i][0] != 0 && 학생이름[i] != null) {
-			int sum = 점수[i][0] + 점수[i][1] + 점수[i][2];
-			double avg = 점수[i][0] + 점수[i][1]+ 점수[i][2];
-			System.out.println(학생이름[i] + "\t" + 점수[i][0] + "\t" + 점수[i][1] + "\t" + 점수[i][2] 
-					+ "\t" + sum + "\t" + avg + "\t");
-		}
-	}	
-	}
-}	
-	
-}
+		else if(ch==2) {		}	
+		else {System.out.println("입력할 수 없는 숫자입니다. 다시 입력해주세요.");}	
+		
+		
+		
+		
+} // w1 e
+} // me
+} // ce
