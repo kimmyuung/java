@@ -2,7 +2,7 @@ package exam;
 
 import java.util.Scanner;
 
-public class exam_2 {
+public class exam_2 { // ver 배열
 //	1. 성적표는 항상 출력이 되어 있도록 합니다. [ 10점 ]
 //	2. 메뉴에서 1번 선택시 학생점수를 추가 합니다. [ 5점 ]
 //	3. 메뉴에서 2번 선택시 학생점수를 삭제 합니다. [ 5점 ]
@@ -54,7 +54,8 @@ public class exam_2 {
 			for(int i=0; i<ranks.length; i++) { // 오름차순 정렬
 				for(int j=0; j<ranks.length; j++) {
 					if(total[i] > total[j]) {
-						temp = ranks[i]; ranks[i] = ranks[j]; ranks[j] = temp; 
+						temp = ranks[i]; ranks[i] = ranks[j]; ranks[j] = temp;
+						
 					}
 				}
 			}
@@ -76,7 +77,7 @@ public class exam_2 {
 					scores[i][1] = 0;
 					scores[i][2] = 0;
 					total[i] = 0;
-					ranks[i] = 0;
+					ranks[i] = 1;
 					
 				}
 				else {

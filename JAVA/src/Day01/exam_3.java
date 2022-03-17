@@ -1,4 +1,4 @@
-package exam;
+package Day01;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
