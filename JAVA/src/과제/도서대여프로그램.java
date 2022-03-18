@@ -58,7 +58,7 @@ public class 도서대여프로그램
 				System.out.println("아이디를 입력해주세요");			String id = sc.next();
 				System.out.println("비밀번호를 입력해주세요");	 	String pw = sc.next(); 
 				boolean logincheck = false; // 로그인 체크 논리 변수
-				while(true) {// w2 s
+				
 				for(int i = 0; i < memberlist.length; i++) { // for1 s
 					if(memberlist[i][0] != null && memberlist[i][0].equals(id) && memberlist[i][1].equals(pw) ) { // if 1 s
 						System.out.println("로그인이 성공했습니다."); // 입력받은 아이디와 비밀번호가 배열에 있는 아이디와 비밀번호와 일치하면
@@ -154,7 +154,7 @@ public class 도서대여프로그램
 					else {System.out.println("로그인 실패 다시 입력해주세요");}
 						} // if1 e
 					} // for1 e
-				} // w2 e
+				
 			} // else if 2 e
 			
 			
