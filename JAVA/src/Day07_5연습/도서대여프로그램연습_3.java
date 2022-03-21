@@ -18,8 +18,8 @@ public class 도서대여프로그램연습_3 {
 			//2-1. 초기 메뉴[1. 회원가입 2. 로그인 3. 아이디찾기 4. 비밀번호 찾기]
 			//2-2. 일반회원 메뉴[1. 도서검색 2. 도서목록 3. 도서대여 4. 도서반납 5. 로그아웃]
 			//2-3. 관리자 메뉴[1. 도서등록 2. 도서목록 3. 도서삭제 4. 순위(=베스트셀러) 5. 로그아웃]
-		static Book2[] booklist = new Book2[100];
-		static Member2[] memberlist = new Member2[100];
+		static Book3[] booklist = new Book3[100];
+		static Member3[] memberlist = new Member3[100];
 		static Scanner sc = new Scanner(System.in);
 		public static void main(String[] args) {
 			도서대여프로그램연습_3 app = new 도서대여프로그램연습_3();
