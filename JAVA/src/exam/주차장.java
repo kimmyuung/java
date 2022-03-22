@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class 주차장 {
@@ -27,18 +28,27 @@ public class 주차장 {
 	public static void main(String[] args) {
 		컨트롤러 con = new 컨트롤러();
 		Date Date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-		String strNowDate = sdf.format(Date);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String strNowDate = simpleDateFormat.format(Date);
 		try {
 			while(true) {
 				System.out.println("주차장");
 				System.out.println("\t\t\t" + strNowDate + "\t\t\t");
-				System.out.println("날짜 \t\t 차량번호 \t\t 입차시간 \t\t 출차시간 \t\t 금액");
+				System.out.println("날짜 \t\t 차량번호 \t 입차시간 \t 출차시간 \t 금액");
 				for(Car temp : 컨트롤러.parklist) {
-					if(temp != null && temp.get금액() == 0) { 
-						System.out.printf("%s \t %s \t %s \t %s \t %d \n" ,
-								temp.get날짜(), temp.get차량번호(), temp.get입차시간(), 
-								temp.get출차시간(), temp.get금액());
+					if(temp.get금액() == 0 ) {
+						DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+						String 입차날짜 = temp.get날짜().format(format);
+						DateTimeFormatter format2 = DateTimeFormatter.ofPattern("HH:mm");
+						String 입차시간 = temp.get입차시간().format(format2);
+						System.out.printf("%s \t %s \t\t %s \t\t 주차 중 \t\t 정산 중 \n" ,
+						입차날짜, temp.get차량번호(), 입차시간);
+					}else {
+						DateTimeFormatter format2 = DateTimeFormatter.ofPattern("HH:mm");
+						String 입차시간 = temp.get입차시간().format(format2);
+						String 출차시간 = temp.get출차시간().format(format2);
+						System.out.printf("%s \t %s \t\t %s \t\t %s \t\t %d \n" ,
+								temp.get날짜(), temp.get차량번호(), 입차시간, 출차시간, temp.get금액());
 					}
 				}
 				System.out.println("1. 입차 \t\t 2. 출차");
@@ -57,7 +67,18 @@ public class 주차장 {
 					String number1 = con.sc.next();
 					boolean result1 = con.출차(number1);
 					if(result1) {
-						System.out.println("계산을 해주세요");
+						System.out.println("계산을 시작합니다.");
+						for(Car temp : 컨트롤러.parklist) {
+							if(temp != null) {
+								System.out.println("계산 금액 : " + temp.get금액() );
+								System.out.println("금액을 입력하세요");
+								int sum = 컨트롤러.sc.nextInt();
+								if(sum >= temp.get금액()) {
+									System.out.println("결제되었습니다 " + (sum - temp.get금액()) +"원을 받으세요");
+								}
+								else {System.out.println("금액이 부족합니다 " + (sum - temp.get금액()) +"원 더 투입해주세요");}
+							}
+						}
 						
 					}
 					else {System.out.println("차 나가기 실패!!");}

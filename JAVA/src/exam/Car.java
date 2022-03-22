@@ -16,13 +16,14 @@ public class Car {
 	public Car() {}
 		// 2. 풀생성자
 	public Car(LocalDate 날짜, String 차량번호, LocalTime 입차시간, LocalTime 출차시간, int 금액) {
+		super();
 		this.날짜 = 날짜;
 		this.차량번호 = 차량번호;
 		this.입차시간 = 입차시간;
 		this.출차시간 = 출차시간;
 		this.금액 = 금액;
 	}
-	// 메소드 
+	// 메소드
 	public LocalDate get날짜() {
 		return 날짜;
 	}
@@ -53,7 +54,5 @@ public class Car {
 	public void set금액(int 금액) {
 		this.금액 = 금액;
 	}
-	
-	
 	
 }
