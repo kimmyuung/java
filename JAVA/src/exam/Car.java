@@ -54,4 +54,6 @@ public class Car {
 		this.금액 = 금액;
 	}
 	
+	
+	
 }

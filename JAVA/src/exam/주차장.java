@@ -1,5 +1,11 @@
 package exam;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
+
 public class 주차장 {
 	// 주차 현황 표 설계
 			// 1. 파일 구분 -> M(모델 : 데이터, 정보) : V(뷰어 : 입력, 출력) : C(컨트롤 : 이벤트작동)
@@ -15,13 +21,53 @@ public class 주차장 {
 			// 4. 모델 <---> 뷰 연결 : 컨트롤러
 				// 1. 화면구현
 					// 2. 버튼구현
+	// 집가서 해야할것 : 시간 형식바꾸기
+	// 정산 중 출력
+	// 시간계산
 	public static void main(String[] args) {
-		
+		컨트롤러 con = new 컨트롤러();
+		Date Date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String strNowDate = sdf.format(Date);
 		try {
 			while(true) {
-				System.out.println();
+				System.out.println("주차장");
+				System.out.println("\t\t\t" + strNowDate + "\t\t\t");
+				System.out.println("날짜 \t\t 차량번호 \t\t 입차시간 \t\t 출차시간 \t\t 금액");
+				for(Car temp : 컨트롤러.parklist) {
+					if(temp != null && temp.get금액() == 0) { 
+						System.out.printf("%s \t %s \t %s \t %s \t %d \n" ,
+								temp.get날짜(), temp.get차량번호(), temp.get입차시간(), 
+								temp.get출차시간(), temp.get금액());
+					}
+				}
+				System.out.println("1. 입차 \t\t 2. 출차");
+				int ch = con.sc.nextInt();
+				if(ch == 1) {
+					System.out.println("차가 주차를 시작합니다");
+					System.out.println("차량번호를 입력해주세요");
+					String number = con.sc.next();
+					boolean result = con.입차(number);
+					if(result) System.out.println("주차 성공!!");
+					else System.out.println("주차 실패!!");
+				}
+				else if(ch==2) {
+					System.out.println("차가 주차장을 나갑니다");
+					System.out.println("나가는 차량번호를 입력해주세요");
+					String number1 = con.sc.next();
+					boolean result1 = con.출차(number1);
+					if(result1) {
+						System.out.println("계산을 해주세요");
+						
+					}
+					else {System.out.println("차 나가기 실패!!");}
+				}
+				else if(ch < 0) {
+					System.out.println("숫자를 잘못 입력하셨습니다. 다시 입력해주세요");
+				}
+				else {System.out.println("등록되지 않은 숫자입니다. 다시 입력해주세요");}
 			}
-		}catch(Exception e) {}
+		}catch(Exception e) {System.out.println("문자열을 입력하셨습니다. 다시 입력해주세요");}
 		
 		
 		
