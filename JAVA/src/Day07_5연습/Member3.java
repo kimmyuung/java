@@ -52,7 +52,7 @@ public class Member3 {
 			System.out.println("이름 : ");			String name = 도서대여프로그램연습_3.sc.next();
 			System.out.println("핸드폰번호 : ");		String number = 도서대여프로그램연습_3.sc.next();
 			int i = 0;
-			for(Member2 temp : 도서대여프로그램연습_3.memberlist) {
+			for(Member3 temp : 도서대여프로그램연습_3.memberlist) {
 				if(temp != null && 도서대여프로그램연습_3.memberlist[i].name.equals(name) && 도서대여프로그램연습_3.memberlist[i].phone.equals(number)) 
 				{
 				System.out.println("아이디  : " + 도서대여프로그램연습_3.memberlist[i].id);	 

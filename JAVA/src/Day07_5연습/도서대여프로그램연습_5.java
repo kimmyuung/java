@@ -7,7 +7,7 @@ public class 도서대여프로그램연습_5 {
 	static Member5[] memberlist = new Member5[100];
 	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
-		도서대여프로그램연습_5 app = new 도서대여프로그램연습_3();
+		도서대여프로그램연습_5 app = new 도서대여프로그램연습_5();
 		app.menu();
 	}
 	void menu() {

@@ -21,21 +21,21 @@ public class Book4 {
 		System.out.println("도서명 : ");			String bname = 도서대여프로그램연습_3.sc.next();
 		System.out.println("저자 : ");			String writer = 도서대여프로그램연습_3.sc.next();
 		int i = 0;
-		for(Book2 temp : 도서대여프로그램연습_3.booklist) {
-			if(temp != null && 도서대여프로그램연습_3.booklist[i].bname.equals(bname)) {
+		for(Book4 temp : 도서대여프로그램연습_4.booklist) {
+			if(temp != null && 도서대여프로그램연습_4.booklist[i].bname.equals(bname)) {
 				System.out.println("찾으시는 도서명을 가진 서적이 검색되었습니다");
-				System.out.println(도서대여프로그램연습_3.booklist[i].bname + "\t" + 도서대여프로그램연습_3.booklist[i].borrow);
+				System.out.println(도서대여프로그램연습_4.booklist[i].bname + "\t" + 도서대여프로그램연습_4.booklist[i].borrow);
 			}
 		i++;}
 	}
 	void 도서목록() {
 		int i = 0;
-		for(Book2 temp : 도서대여프로그램연습_3.booklist) {
-			if(temp != null && 도서대여프로그램연습_3.booklist[i].bname.equals(bname)) {
+		for(Book4 temp : 도서대여프로그램연습_4.booklist) {
+			if(temp != null && 도서대여프로그램연습_4.booklist[i].bname.equals(bname)) {
 				System.out.println("도서 목록");
 				System.out.printf("ISBN : %s \t 도서명 : %s \t 저자 : %s \t 대여여부 : %s \n"
-						, 도서대여프로그램연습_3.booklist[i].ISBN,도서대여프로그램연습_3.booklist[i].bname
-						, 도서대여프로그램연습_3.booklist[i].writer, 도서대여프로그램연습_3.booklist[i].borrow);
+						, 도서대여프로그램연습_4.booklist[i].ISBN,도서대여프로그램연습_4.booklist[i].bname
+						, 도서대여프로그램연습_4.booklist[i].writer, 도서대여프로그램연습_4.booklist[i].borrow);
 			}
 		i++;}
 	}
@@ -57,7 +57,7 @@ public class Book4 {
 		System.out.println("도서명 : ");			String bname = 도서대여프로그램연습_3.sc.next();
 		System.out.println("저자 : ");			String writer = 도서대여프로그램연습_3.sc.next();
 		int i = 0;
-		for(Book2 temp : 도서대여프로그램연습_4.booklist) {
+		for(Book4 temp : 도서대여프로그램연습_4.booklist) {
 			if(temp == null) {
 				Book4 book = new Book4(isbn, bname, writer, "대여 가능");
 				도서대여프로그램연습_4.booklist[i] = book;
@@ -70,7 +70,7 @@ public class Book4 {
 		System.out.println("도서대여 페이지");
 		System.out.println("도서명 : ");			String bname = 도서대여프로그램연습_3.sc.next();
 		int i = 0;
-		for(Book2 temp : 도서대여프로그램연습_4.booklist) {
+		for(Book4 temp : 도서대여프로그램연습_4.booklist) {
 			if(temp != null && 도서대여프로그램연습_4.booklist[i].bname.equals(bname) && 
 					도서대여프로그램연습_4.booklist[i].borrow.equals("대여 가능")) {
 				System.out.println("도서를 대여합니다.");
@@ -83,7 +83,7 @@ public class Book4 {
 		System.out.println("ISBN : "); 			String isbn = 도서대여프로그램연습_3.sc.next();
 		System.out.println("도서명 : ");			String bname = 도서대여프로그램연습_3.sc.next();
 		int i = 0;
-		for(Book2 temp : 도서대여프로그램연습_4.booklist) {
+		for(Book4 temp : 도서대여프로그램연습_4.booklist) {
 			if(temp != null && 도서대여프로그램연습_4.booklist[i].ISBN.equals(isbn) && 
 					도서대여프로그램연습_4.booklist[i].bname.equals(bname)) {
 				도서대여프로그램연습_4.booklist[i] = null;

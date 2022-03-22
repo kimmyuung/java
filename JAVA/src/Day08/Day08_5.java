@@ -4,13 +4,7 @@ import java.util.Scanner;
 
 public class Day08_5 {
 
-	//모바일 뱅크 프로그램
-		// 요구사항
-		//회원주요기능: 1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기
-		//계좌주요기능:  1.계좌생성 2.입금 3.출금 4.이체 5.대출 6.계좌목록
-		// 설계: 통장, 대출상품, 회원
-			//필드 
-			//메소드
+	
 	
 	static Scanner scanner = new Scanner(System.in);
 	static Member [] members = new Member[1000];
