@@ -34,14 +34,14 @@ public class 주차장 {
 			while(true) {
 				System.out.println("주차장");
 				System.out.println("\t\t\t" + strNowDate + "\t\t\t");
-				System.out.println("날짜 \t\t 차량번호 \t 입차시간 \t 출차시간 \t 금액");
+				System.out.println("날짜 \t\t 차량번호 \t\t 입차시간 \t\t 출차시간 \t\t 금액");
 				for(Car temp : 컨트롤러.parklist) {
-					if(temp.get금액() == 0 ) {
+					if(temp.get출차시간() == null ) {
 						DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 						String 입차날짜 = temp.get날짜().format(format);
 						DateTimeFormatter format2 = DateTimeFormatter.ofPattern("HH:mm");
 						String 입차시간 = temp.get입차시간().format(format2);
-						System.out.printf("%s \t %s \t\t %s \t\t 주차 중 \t\t 정산 중 \n" ,
+						System.out.printf("%s \t %s \t\t %s \t\t 주차 중 \t\t 정산중 \n" ,
 						입차날짜, temp.get차량번호(), 입차시간);
 					}else {
 						DateTimeFormatter format2 = DateTimeFormatter.ofPattern("HH:mm");
@@ -76,6 +76,7 @@ public class 주차장 {
 								if(sum >= temp.get금액()) {
 									System.out.println("결제되었습니다 " + (sum - temp.get금액()) +"원을 받으세요");
 								}
+								else if(sum == 0) {System.out.println("30분 이전은 주차장 무료입니다. 가시면 됩니다.");}
 								else {System.out.println("금액이 부족합니다 " + (sum - temp.get금액()) +"원 더 투입해주세요");}
 							}
 						}
