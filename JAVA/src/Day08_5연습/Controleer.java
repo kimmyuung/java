@@ -88,24 +88,28 @@ public class Controleer {
 			}
 		i++;}
 	return false;}
+	
 	boolean 입금 (int money) {
 		int i = 0;
 		for(Money temp : moneylist) {
-			if(moneylist[i] == null) {
-				moneylist[i].setMoney(money); 
+			if(moneylist[i] != null) {
+				moneylist[i].setMoney(moneylist[i].getMoney() + money); 
 				return true;
 			}
 		i++;}
 		return false;
 	}
-	boolean 출금 (int money) {
+	
+	boolean 출금 (int money, String pw) {
 		int i = 0;
+		boolean pass = false;
 		for(Money temp : moneylist) {
-			if(moneylist[i] != null && moneylist[i].getMoney() >= money) {
-				moneylist[i].setMoney(moneylist[i].getMoney() - money); 
-				return true;
-			}
-		i++;}
+			if(temp != null && moneylist[i].getPw().equals(pw) 
+					&& moneylist[i].getMoney() >= money) {
+				moneylist[i].setMoney(moneylist[i].getMoney() - money);
+				pass = true;
+			} i++;
+		}
 		return false;
 	}
 	boolean 이체 (String name, String pw, int money) {

@@ -66,6 +66,7 @@ public class 도서대여프로그램
 					
 					if(logincheck && memberlist[i][0].equals("admin") && memberlist[i][1].equals(pw)) {
 						// 아이디가 admin이라면 관리자 모드로 로그인
+						while(true) {
 						System.out.println("관리자 모드로 로그인합니다.");
 						System.out.println("1. 도서 등록 2. 도서 메뉴 3. 도서삭제(도전) 4. 로그아웃");
 						int select1 = sc.nextInt();
@@ -106,9 +107,10 @@ public class 도서대여프로그램
 							}
 						}	
 						else if(select1 == 4) {System.out.println("로그아웃!!"); break;} // 관리자모드 로그아웃
-					}	 
+						}
+						}	 
 					else if (logincheck) { // 아이디가 admin이 아니면 일반회원으로 로그인
-						
+						while(true) {
 						System.out.println("회원 로그인");
 						System.out.println("1. 도서검색 // 2. 도서목록 // 3. 도서대여 // 4. 도서반납 // 5. 로그아웃");
 						int select1 = sc.nextInt();
@@ -150,7 +152,7 @@ public class 도서대여프로그램
 						else if(select1 == 5) {System.out.println("로그아웃!"); break;} // 일반회원 로그아웃
 						else {System.out.println("잘못입력하셨습니다. 다시 입력해주세요.");} // 숫자를 잘못입력했을시
 								} 
-									
+					}	
 					else {System.out.println("로그인 실패 다시 입력해주세요");}
 						} // if1 e
 					} // for1 e

@@ -48,9 +48,11 @@ public class Day08_5연습 {
 							
 						} else if (ch1 == 3) {
 							System.out.println("출금 페이지");
+							System.out.println("계좌 비밀번호를 입력하세요");
+							String pw = controleer.sc.next();
 							System.out.println("출금하실 금액을 입력하세요");
 							int money = controleer.sc.nextInt();
-							boolean result1 = controleer.출금(money);
+							boolean result1 = controleer.출금(money, pw);
 							if(result) {System.out.println("출금이 완료되었습니다.");}
 							else System.out.println("출금에 실패하였습니다.");
 							
@@ -66,6 +68,7 @@ public class Day08_5연습 {
 							boolean result1 = controleer.이체(name, pw, money);
 							if(result1) System.out.println("이체 성공!!");
 							else System.out.println("이체 실패!!");
+							
 						} else if (ch1 == 5) {
 							System.out.println("대출 페이지");
 							System.out.println("1. 빠른대출(이율 5%) 2. 일반대출(이율 3%)");
