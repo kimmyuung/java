@@ -27,7 +27,7 @@ public class 프로토스 implements 인터페이스_스타{
 	 @Override
 		public int 자원채집(int sum) {
 			// TODO Auto-generated method stub
-			System.out.println("SCV가 미네랄을 채취합니다.");
+			System.out.println("프로브가 미네랄을 채취합니다.");
 			Random random = new Random();
 			int 미네랄 = random.nextInt(8)+1;
 			sum += 미네랄;
@@ -37,7 +37,7 @@ public class 프로토스 implements 인터페이스_스타{
 		public int 가스채집(int sum1) {
 			// TODO Auto-generated method stub
 			Random random = new Random();
-			System.out.println("SCV가 가스를 채취합니다.");
+			System.out.println("프로브가 가스를 채취합니다.");
 			int 가스 = random.nextInt(8)+1;
 			sum1 += 가스;
 			return sum1;
