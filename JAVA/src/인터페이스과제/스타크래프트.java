@@ -31,8 +31,7 @@ public static void main(String[] args) {
 				if(ch2 == 1) {
 					int 미네랄합 = 프로토스.자원채집(sum);
 					int 가스합 = 프로토스.가스채집(sum1);
-					sum += 미네랄합;
-					sum1 += 가스합;		
+				
 					System.out.println("미네랄 : " + 미네랄합);
 					System.out.println("가스 : " + 가스합);
 				}
@@ -64,8 +63,7 @@ public static void main(String[] args) {
 					if(ch2 == 1) {
 						int 미네랄합 = 저그.자원채집(sum);
 						int 가스합 = 저그.가스채집(sum1);
-						sum += 미네랄합;
-						sum1 += 가스합;		
+							
 						System.out.println("미네랄 : " + 미네랄합);
 						System.out.println("가스 : " + 가스합);
 					}
@@ -97,8 +95,7 @@ public static void main(String[] args) {
 					if(ch2 == 1) {
 						int 미네랄합 = 테란.자원채집(sum);
 						int 가스합 = 테란.가스채집(sum1);
-						sum += 미네랄합;
-						sum1 += 가스합;		
+							
 						System.out.println("미네랄 : " + 미네랄합);
 						System.out.println("가스 : " + 가스합);
 					}

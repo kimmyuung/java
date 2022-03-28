@@ -11,8 +11,7 @@ public class Bank {
 	
 	// 2. constructor
 public Bank() {}
-public Bank(String bnum, String pw, String name, int bmoney) {
-		
+public Bank(String bnum, String pw, String name, int bmoney) {	
 		this.bnum = bnum;
 		this.pw = pw;
 		this.name = name;
