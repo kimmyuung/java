@@ -11,8 +11,7 @@ public static void main(String[] args) {
 	인터페이스_스타 저그 = new 저그();
 	인터페이스_스타 테란 = new 테란();
 	인터페이스_스타 프로토스 = new 프로토스();
-	int sum = 0;
-	int sum1 = 0;
+	
 	while(true) {
 		System.out.println("스타크래프트!!!!!");
 		System.out.println("1. ai 대전 2. 종료");
@@ -26,6 +25,8 @@ public static void main(String[] args) {
 				System.out.println("게임이 시작되었습니다.");
 				
 				while(true) {
+				int sum = 0;
+				int sum1 = 0;
 				System.out.println("1. 자원채취 2. 유닛생산 3. 게임종료");
 				int ch2 = sc.nextInt();
 				if(ch2 == 1) {
@@ -57,15 +58,17 @@ public static void main(String[] args) {
 				저그.종족선택();
 				System.out.println("게임이 시작되었습니다.");
 				while(true) {
-					
+					int sum = 0;
+					int sum1 = 0;
 					System.out.println("1. 자원채취 2. 유닛생산 3. 게임종료");
 					int ch2 = sc.nextInt();
 					if(ch2 == 1) {
 						int 미네랄합 = 저그.자원채집(sum);
 						int 가스합 = 저그.가스채집(sum1);
-							
+				
 						System.out.println("미네랄 : " + 미네랄합);
 						System.out.println("가스 : " + 가스합);
+						
 					}
 					else if(ch2 == 2) {
 						System.out.println("유닛을 생산합니다.");
@@ -89,6 +92,8 @@ public static void main(String[] args) {
 				테란.종족선택();
 				System.out.println("게임이 시작되었습니다.");
 				while(true) {
+					int sum = 0;
+					int sum1 = 0;
 					
 					System.out.println("1. 자원채취 2. 유닛생산 3. 게임종료");
 					int ch2 = sc.nextInt();
