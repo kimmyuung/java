@@ -6,7 +6,7 @@ import java.util.Hashtable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Controller {
+public class Controller { 
 	
 	// 회원리스트
 	static ArrayList<Member> memberlist = new ArrayList<>();
@@ -23,9 +23,9 @@ public class Controller {
 	
 	public int sign (String id, String pw,String name, String phone) {
 		
-		Member member = new Member( id, pw, name, phone,false);
+		Member member = new Member( id, pw, name, phone,false); // 회원가입
 		memberlist.add(member);
-		db.memberSave();
+		db.memberSave(); // 파일 처리
 		return 1;
 	}
 	
@@ -33,18 +33,18 @@ public class Controller {
 		
 
 		for(Member temp : memberlist) {
-			if(temp!=null) {
-				if(id.equals("admin") && temp.getPw().equals(pw)) {
-					return "admin";
+			if(temp!=null) { // temp가 널이 아니면?? 이게 필요하나...? 리스트에선 필요없는 걸로 아는데..
+				if(id.equals("admin") && temp.getPw().equals(pw)) {// 입력받은 아이디와 비번을 관리자모드로 설정한 아이디와 같은지 확인
+					return "admin"; // 관리자모드 로그인 위해 반환
 				}
 				else if(temp.getId().equals(id)&&temp.getPw().equals(pw)) {
-					return temp.getId();
+					return temp.getId(); // 일반회원 로그인
 				}
 				
 			}
 			
 		}
-		return "false";
+		return "false"; // 로그인 실패!
 	}
 	
 	
@@ -112,7 +112,7 @@ public class Controller {
 		for(Member temp : memberlist) {
 			if(temp.getId().equals(id) && temp.getPw().equals(pw)) {
 				while(true) {
-					int pass = 0;
+					int pass = 0; // 논리변수로 설정했어도 되긴 했을듯..
 					System.out.println("변경할 비밀번호 입력 : "); 
 					new_pw = scanner.next();
 					if(new_pw.length() < 7) {
@@ -124,10 +124,10 @@ public class Controller {
 						pass = 0;
 					}
 					else {
-						pass = 1;
+						pass = 1; // 조건에 걸리지 않는다면 통과 true/false였어도 상관없지 않았을까? 
 					}
 					if(pass == 1) {
-						break;
+						break; // 비밀번호 설정 완료
 					}
 				}
 				temp.setPw(new_pw);
@@ -168,9 +168,9 @@ public class Controller {
 	
 	public void reserve(String id,String title,String intime,String runtime,int money,int seat,int Th_num) {
 		Random random = new Random();
-		int ticket_number = random.nextInt(99999999)+10000000;
-		DecimalFormat df2 = new DecimalFormat("#,##0원");
-		String new_money = df2.format(money);
+		int ticket_number = random.nextInt(99999999)+10000000; // 난수
+		DecimalFormat df2 = new DecimalFormat("#,##0원"); // 가격 표현방식 위해 이용
+		String new_money = df2.format(money); // 영화 금액
 		System.out.println("-----------예매 정보----------");
 		System.out.println("사용자id : " +id);
 		System.out.println("영화제목 : "+title);
@@ -187,8 +187,8 @@ public class Controller {
 		int intime_min = Integer.parseInt(new_intime[1]);
 		int runtime_hour = Integer.parseInt(new_runtime[0]);
 		int runtime_min = Integer.parseInt(new_runtime[1]);
-		int outhour = (intime_hour+runtime_hour);
-		int outmin = (intime_min+runtime_min);
+		int outhour = (intime_hour+runtime_hour); // 총 시간
+		int outmin = (intime_min+runtime_min); // 총 분
 		DecimalFormat df = new DecimalFormat("00");
 		String out1 = df.format(outhour);
 		String out2 = df.format(outmin);
@@ -237,10 +237,10 @@ public class Controller {
 		
 		System.out.println("메세지)) 정말 삭제하시겠습니까?");
 		System.out.println("1)네  2)아니요");
-		String work = scanner.next();
+		String work = scanner.next(); // 
 		
 		if(work.equals("1") || work.equals("네")) {
-			num -= 1;
+			num -= 1; // 객체 생성 순서는 0부터 시작하기 때문에 1을 빼줌
 			movielist.remove(num);
 			db.movieSave();
 		}
@@ -263,7 +263,7 @@ public class Controller {
 				int ticketfee = 0; 
 				for (int j = 0; j < ticketlist.size(); j++) {
 					if (ticketlist.get(i).getT_title().equals(ticketlist.get(j).getT_title())) {
-						ticketfee += ticketlist.get(i).getT_money();
+						ticketfee += ticketlist.get(i).getT_money(); // 더해서 저장
 					}
 				}
 				map.put(ticketlist.get(i).getT_title(), ticketfee);

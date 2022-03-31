@@ -32,7 +32,7 @@ public static void main(String[] args) { // 최종
 					System.out.printf("| %s\t%s\t\t| %s | %s | %s\n","관","상영작","시작 시간","종료 시간","가격");
 					System.out.println("--------------------------------------------------------");
 					for(Movie movie : Controller.movielist) {
-
+						// 시간 표현
 						SimpleDateFormat nowtime = new SimpleDateFormat("HH:mm");
 						String nowTime = nowtime.format(date);
 						String[] now_intime = nowTime.split(":");
@@ -265,7 +265,7 @@ public static void main(String[] args) { // 최종
 				else if(Controller.movielist.get(index).isCheck() == false) {
 					System.out.println("메세지)) 예매할수 없는 영화 입니다.");
 				}
-				else {
+				else { // 이런것들 메소드화해서 하면 안됬나?? 메인에서 한 이유가..?
 					System.out.println("-------------------------------------");
 					for(Movie temp : Controller.movielist) {
 						if (temp.getTh_num() == 1) {
