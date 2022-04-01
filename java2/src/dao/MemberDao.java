@@ -90,7 +90,10 @@ public class MemberDao { // DB 접근객체
 		ps.setString(2, address);
 		rs = ps.executeQuery();
 		
-		if(rs.next()) {return rs.getString(3);}
+		if(rs.next()) {
+			String id = rs.getString("mid");
+			return id;
+			}
 		return null;
 		}
 	// 4. 비밀번호찾기 메소드(인수 : 비번 찾기 시 필요한 아이디, 이메일)
@@ -101,7 +104,10 @@ public class MemberDao { // DB 접근객체
 		ps.setString(2, email);
 		rs = ps.executeQuery();
 		
-		if(rs.next()) {return rs.getString(3);}
+		if(rs.next()) {
+			String pw = rs.getString("mpassword");
+			return pw;
+			}
 		return null;
 		}
 	

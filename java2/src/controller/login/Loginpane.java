@@ -41,13 +41,13 @@ private Label labelconform;
 
 @FXML
 void accfindid(ActionEvent event) {
-	System.out.println(" 아이디찾기 페이지로 이동 ");
+	
 	Login.get본인객체().loadpage("/view/login/findid.fxml");
 }
 
 @FXML
 void accfindpw(ActionEvent event) {
-	System.out.println(" 비밀번호 찾기 페이지로 이동 ");
+	
 	Login.get본인객체().loadpage("/view/login/findpw.fxml");
 }
 

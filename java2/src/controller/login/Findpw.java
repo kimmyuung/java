@@ -18,7 +18,7 @@ public class Findpw implements Initializable{
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
 	// TODO Auto-generated method stub
-	
+	txtfail.setText("");
 }
 @FXML
 private TextField txtid;
@@ -40,7 +40,6 @@ private TextField txtemail;
 
 @FXML
 void back(ActionEvent event) {
-	System.out.println("뒤로 가기!");
 Login.get본인객체().loadpage("/view/login/loginpane.fxml");
 }
 

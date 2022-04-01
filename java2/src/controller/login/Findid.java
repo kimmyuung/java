@@ -39,7 +39,6 @@ public class Findid implements Initializable{
 
     @FXML
     void back(ActionEvent event) {
-    	System.out.println("뒤로 가기!");
     	Login.get본인객체().loadpage("/view/login/loginpane.fxml");
     }
 
