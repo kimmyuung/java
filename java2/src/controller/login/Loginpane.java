@@ -1,8 +1,10 @@
 package controller.login;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,10 +62,17 @@ void accsignup(ActionEvent event) {
 }
 
 @FXML
-void login(ActionEvent event) {
-	System.out.println(" 로그인 페이지로 이동 ");
+void login(ActionEvent event) throws SQLException {
+
 	String id = txtid.getText();
 	String pw = txtpw.getText();
+	boolean result = MemberDao.memberDao.login(id, pw);
+	if(result) {
+		labelconform.setText("로그인성공");
+	}
+	else {
+		labelconform.setText("동일한 회원이 없습니다.");
+	}
 	if(id.equals("admin") && pw.equals("1234")) {
 		labelconform.setText("관리자 라고욧!!!");
 	}

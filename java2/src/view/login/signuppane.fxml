@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.Signuppane">
    <children>
       <TextField fx:id="txtid" layoutX="96.0" layoutY="104.0" prefHeight="37.0" prefWidth="200.0" promptText="아이디" />
-      <PasswordField fx:id="twtemail" layoutX="96.0" layoutY="270.0" prefHeight="37.0" prefWidth="200.0" promptText="이메일" />
+      <PasswordField fx:id="txtemail" layoutX="96.0" layoutY="270.0" prefHeight="37.0" prefWidth="200.0" promptText="이메일" />
       <Button fx:id="btsignup" layoutX="96.0" layoutY="390.0" mnemonicParsing="false" onAction="#signup" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #00ff0000;" text="회원가입">
          <font>
             <Font size="36.0" />
@@ -21,9 +21,9 @@
             <Font size="16.0" />
          </font></Button>
       <PasswordField fx:id="txtaddress" layoutX="96.0" layoutY="322.0" prefHeight="37.0" prefWidth="200.0" promptText="주소" />
-      <TextField fx:id="twtpw" layoutX="96.0" layoutY="154.0" prefHeight="37.0" prefWidth="200.0" promptText="비밀번호" />
-      <TextField fx:id="twtpwconfirm" layoutX="96.0" layoutY="213.0" prefHeight="37.0" prefWidth="200.0" promptText="비밀번호 확인" />
-      <Label fx:id="txtfail" layoutX="96.0" layoutY="72.0" prefHeight="15.0" prefWidth="200.0" text="회원가입 실패 표시" textFill="#d31515">
+      <TextField fx:id="txtpw" layoutX="96.0" layoutY="154.0" prefHeight="37.0" prefWidth="200.0" promptText="비밀번호" />
+      <TextField fx:id="txtpwconfirm" layoutX="96.0" layoutY="213.0" prefHeight="37.0" prefWidth="200.0" promptText="비밀번호 확인" />
+      <Label fx:id="txtfail" layoutX="96.0" layoutY="60.0" prefHeight="31.0" prefWidth="239.0" text="회원가입 실패 표시" textFill="#d31515">
          <font>
             <Font size="15.0" />
          </font>
