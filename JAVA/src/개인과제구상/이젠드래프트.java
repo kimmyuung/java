@@ -36,12 +36,15 @@ public static void main(String[] args) {
 		}
 		else if(ch==4) {
 			ÀÌÁ¨µå·¡ÇÁÆ®_ÀÎÅÍÆäÀÌ½º ÆÀÀå = new ÆÀÀå("±è¼±Á¦", "ºÐ¾÷", »ÌÀºÆÀ¿ø, -1);
+			ÆÀÀå.ÆÀÀå¼±ÅÃ();
 		}
 		else if(ch == 5) {
 			ÀÌÁ¨µå·¡ÇÁÆ®_ÀÎÅÍÆäÀÌ½º ÆÀÀå = new ÆÀÀå("¹Ú¹Î¿í", "¼ÒÅë", »ÌÀºÆÀ¿ø, -3);
+			ÆÀÀå.ÆÀÀå¼±ÅÃ();
 		}
 		else if(ch == 6) {
 			ÀÌÁ¨µå·¡ÇÁÆ®_ÀÎÅÍÆäÀÌ½º ÆÀÀå = new ÆÀÀå("±è¸íÈ£", "X", »ÌÀºÆÀ¿ø, -5);
+			ÆÀÀå.ÆÀÀå¼±ÅÃ();
 		}
 		else if(ch == 7) {
 			System.out.println("°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù. "); break;
