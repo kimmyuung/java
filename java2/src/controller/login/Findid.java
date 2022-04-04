@@ -43,16 +43,17 @@ public class Findid implements Initializable{
     }
 
     @FXML
-    void findid(ActionEvent event) throws SQLException {
+    void findid(ActionEvent event) throws SQLException { // 아이디 찾기 버튼 누름
     	try {
-    	String id = txtemail.getText();
+    		// 컨트롤에 입력된 이메일을 가져옴.
+    	String email = txtemail.getText();
     	String address = txtaddress.getText();
-    	String result = MemberDao.memberDao.findid(id, address);
-    	if(id!=null) {
+    	String result = MemberDao.memberDao.findid(email, address);
+    	if(result!=null) {
     		Alert alert = new Alert(AlertType.INFORMATION); // 메시지 객체
     		alert.setTitle("알림");
     		alert.setHeaderText("아이디 찾기 결과");
-    		alert.setContentText(id);
+    		alert.setContentText(result);
     		alert.showAndWait(); // 메시지 실행
     	}
     	else {

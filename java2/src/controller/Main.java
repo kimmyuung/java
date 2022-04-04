@@ -13,6 +13,11 @@ import javafx.scene.layout.BorderPane;
 	
 public class Main implements Initializable{
 	// Initializable : view가 열렸을 때 초기값 설정 메소드 제공
+	public static Main instance;
+	public Main() {
+		instance = this;
+	}
+	
 	@FXML
 	private BorderPane borderpane; // fx : id
 	@Override
@@ -28,4 +33,5 @@ public class Main implements Initializable{
 		// 컨테이너 가운데에 다른 페이지 넣기
 		}catch(Exception e) {System.out.println("페이지 연결 실패!");}
 	}
+	
 }

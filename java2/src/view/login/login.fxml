@@ -13,7 +13,7 @@
       <MediaView fx:id="mediaview" fitHeight="630.0" fitWidth="1280.0" />
       <ImageView fitHeight="128.0" fitWidth="150.0" layoutX="205.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/stagelogo.jpg" />
+            <Image url="@../../img/stagelogo.jpg" />
          </image>
       </ImageView>
       <Text fill="#f20808" layoutX="176.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="안산 지역 중고 거래" wrappingWidth="186.12109375">

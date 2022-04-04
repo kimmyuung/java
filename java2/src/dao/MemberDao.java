@@ -90,7 +90,7 @@ public class MemberDao { // DB 접근객체
 		ps.setString(2, address);
 		rs = ps.executeQuery();
 		
-		if(rs.next()) {
+		if(rs.next()) { // 실행 결과의 다음 레코드가 있으면
 			String id = rs.getString("mid");
 			return id;
 			}
@@ -110,5 +110,57 @@ public class MemberDao { // DB 접근객체
 			}
 		return null;
 		}
+	
+	// 5. 아이디로 회원정보 호출
+	public Member getmember(String id) {
+		try {
+		// 1. SQL 작성
+		String sql = "select * from javafx.member where mid=?";
+		// 2. SQL 조직
+		ps = con.prepareStatement(sql);
+		ps.setString(1, id);
+		// 3. SQL 실행
+		rs = ps.executeQuery();
+		// 4. SQL 결과
+		if(rs.next() ) {
+			// 1. 객체선언
+			Member member = new Member(rs.getInt(1), rs.getString(2), rs.getString(3),
+					rs.getString(4),rs.getString(5), rs.getInt(6) , rs.getString(7) );
+			// rs.next() : 결과내 다음 레코드(줄, 가로)
+			// rs.getInt(필드 순서 번호) : 해당 필드의 자료형이 정수형으로 가져오기
+			// rs.getString(필드 순서 번호) : 해당 필드의 자료형이 문자열로 가져오기
+			// 2. 반환
+			return member;
+		}
+		}catch(Exception e) {System.out.println(e);}
+		return null;
+	}
+	// 6. 회원탈퇴 // 회원번호를 인수로 받아 해당 회원번호의 레코드 삭제
+	public boolean delate(int mnum) {
+		try {
+			// 레코드 삭제 : delate from 테이블명 where 조건
+		String sql = "delete from javafx.member where mnum = ?";
+		// 2. SQL 조작
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, mnum);
+		// 3. SQL 실행
+		ps.executeUpdate();
+		return true;
+		}catch(Exception e) {System.out.println(e);}
+		return false;
+	}
+	// 7. 회원수정[회원번호 ,이메일, 주소 인수로 받아 수정]
+	public boolean update(int mnum, String email, String address) {
+		try {
+			String sql = "update javafx.member set memail = ?, maddress = ? where mnum = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.setString(2, address);
+			ps.setInt(3, mnum);
+			ps.executeUpdate();
+			return true;
+		}catch(Exception e){System.out.println(e);}
+		return false;
+	}
 	
 }

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import controller.Main;
 import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,7 +69,10 @@ void login(ActionEvent event) throws SQLException {
 	String pw = txtpw.getText();
 	boolean result = MemberDao.memberDao.login(id, pw);
 	if(result) {
+		// 로그인 성공시 성공한 회원정보 저장 [ 로그아웃 시 초기화 ]
+		Login.member = MemberDao.memberDao.getmember(id);
 		labelconform.setText("로그인성공");
+		Main.instance.loadpage("/view/home/home.fxml");
 	}
 	else {
 		labelconform.setText("동일한 회원이 없습니다.");
@@ -76,7 +80,7 @@ void login(ActionEvent event) throws SQLException {
 	if(id.equals("admin") && pw.equals("1234")) {
 		labelconform.setText("관리자 라고욧!!!");
 	}
-	else labelconform.setText("일반회원이시군요");
+	else labelconform.setText("동일한 회원정보가 없습니다.");
 	
 	System.out.println("로그인 처리");
 }

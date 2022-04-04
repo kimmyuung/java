@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import dao.MemberDao;
+import dto.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,10 +51,10 @@ void findpw(ActionEvent event) throws SQLException {
 	    	String email = txtemail.getText();
 	    	String password = MemberDao.memberDao.findpw(id, email);
 	    	if(password!=null) {
+	    		Member.sendmail(email, password);
 	    		Alert alert = new Alert(AlertType.INFORMATION); // 메시지 객체
 	    		alert.setTitle("알림");
-	    		alert.setHeaderText("비밀번호 찾기 결과");
-	    		alert.setContentText(password);
+	    		alert.setHeaderText("해당 이메일로 비밀번호를 전송했습니다.");
 	    		alert.showAndWait(); // 메시지 실행
 	    	}
 	    	else {
