@@ -162,5 +162,7 @@ public class MemberDao { // DB Á¢±Ù°´Ã¼
 		}catch(Exception e){System.out.println(e);}
 		return false;
 	}
+	// 8. Æ÷ÀÎÆ® È¹µæ
+	
 	
 }
