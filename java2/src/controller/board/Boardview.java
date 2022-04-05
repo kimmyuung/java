@@ -61,7 +61,23 @@ public class Boardview implements Initializable {
 
     @FXML
     private TableView<Reply> replytable;
-
+    
+    @FXML
+    private Button btnrdelete;
+    static Reply reply = new Reply();
+    @FXML
+    void rdelete(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION); // 확인, 취소 버튼 타입
+    	alert.setHeaderText("정말 댓글을 삭제하시겠습니까?");
+    	Optional<ButtonType> optional = alert.showAndWait(); // 실행 
+    	if(optional.get() == ButtonType.OK) { // 확인버튼을 눌렀을 때
+    		boolean result = BoardDao.boardDao.rdelete(reply.getRnum());
+    		alert.showAndWait();
+    		txtreply.setText("");
+    		// 댓글 작성 후 테이블 새로고침
+    		replytableshow();
+    	}
+    }
     @FXML
     void back(ActionEvent event) {
     	Home.home.loadpage("/view/board/board.fxml");
@@ -157,9 +173,11 @@ public class Boardview implements Initializable {
 			upcheck = true;
 		}
     }
+    
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
 	replytableshow();
+	
 	dto.Board board = controller.board.Board.board; // board컨트롤내 테이블에서 선택된 객체 호출
 	
 	labelwriter.setText("작성자 : " + board.getBwrite());

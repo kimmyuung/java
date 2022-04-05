@@ -30,9 +30,9 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btnrewrite" layoutX="728.0" layoutY="546.0" mnemonicParsing="false" onAction="#rewrite" prefHeight="51.0" prefWidth="148.0" text="댓글 쓰기">
+      <Button fx:id="btnrewrite" layoutX="719.0" layoutY="544.0" mnemonicParsing="false" onAction="#rewrite" prefHeight="51.0" prefWidth="105.0" text="댓글 쓰기">
          <font>
-            <Font size="25.0" />
+            <Font size="17.0" />
          </font>
       </Button>
       <Button fx:id="btnback" layoutX="790.0" layoutY="61.0" mnemonicParsing="false" onAction="#back" prefHeight="51.0" prefWidth="139.0" text="목록보기">
@@ -80,5 +80,10 @@
             <TableColumn prefWidth="620.0" text="내용" />
         </columns>
       </TableView>
+      <Button fx:id="btnrdelete" layoutX="832.0" layoutY="544.0" mnemonicParsing="false" onAction="#rdelete" prefHeight="51.0" prefWidth="105.0" text="댓글 삭제">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

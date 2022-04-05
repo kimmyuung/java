@@ -22,7 +22,7 @@ public class MemberDao { // DB 접근객체
 	// DB 연동할때마다 객체 선언시 불필요
 	
 	public static MemberDao memberDao = new MemberDao();// DB 연동 객체;
-	public static ArrayList<String> pointlist = new ArrayList<>();
+	public static ArrayList<String> pointlist = new ArrayList<>(); // 포인트 저장 위한 리스트
 	public MemberDao () {
 		memberDao = this;
 		try {

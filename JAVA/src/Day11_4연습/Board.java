@@ -1,49 +1,43 @@
-package Day11;
+package Day11_4연습;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Board {
-	// 1. 필드
 	private String title;
 	private String content;
 	private String password;
 	private String writer;
 	private int viewcount;
 	private String date;
-	private ArrayList<Reply> replylist 
+	private ArrayList<댓글> replylist 
 					= new ArrayList<>();
-	// 2. 생성자
-		// 1. 빈생성자
-	public Board() {}
-		// 2. 게시물등록 시 사용되는 생성자 [ 날짜 자동주입 ] 
-	public Board(String title, String content, String password, String writer) {
-		this.title = title;
-		this.content = content;
-		this.password = password;
-		this.writer = writer;
-			// 날짜 클래스 : Date 클래스 ( java.util )
-		Date date = new Date(); // 날짜 객체 생성 
-			// 날짜 형식 클래스 : SimpleDateFormat 클래스 ( java.text )
-		SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
-										// y:연도 M:월 d:일 h:시 m:분 s:초 
-		this.date = format.format(date);// 객체명.format( 날짜 ) ; // 해당 날짜가 format 설정한 패턴으로 문자형으로 변환
-	}
+	Board() {}
 	
-		
-		// 3. 풀생성자
 	public Board(String title, String content, String password, String writer, int viewcount, String date,
-			ArrayList<Reply> replylist) {
+			ArrayList<댓글> replylist) {
+		super();
 		this.title = title;
 		this.content = content;
 		this.password = password;
 		this.writer = writer;
 		this.viewcount = viewcount;
-		this.date = date;
+		LocalDate date1 = LocalDate.now();
+		SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
+		this.date = sdf.format(date1);
 		this.replylist = replylist;
 	}
-	// 3. 메소드 [ private 필드 사용시 getter or setter 선언(자동완성) ]
+	
+	public Board(String title, String content, String writer, String password) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.password = password;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -80,11 +74,11 @@ public class Board {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public ArrayList<Reply> getReplylist() {
+	public ArrayList<댓글> getReplylist() {
 		return replylist;
 	}
-	public void setReplylist(ArrayList<Reply> replylist) {
+	public void setReplylist(ArrayList<댓글> replylist) {
 		this.replylist = replylist;
 	}
-
+	
 }

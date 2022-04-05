@@ -123,10 +123,10 @@ public class BoardDao {
 	public ObservableList<Reply> replylist(int bnum) {
 		ObservableList<Reply> replylist = FXCollections.observableArrayList();
 		try {
-			String sql = "select * from javafx.reply where bnum = ? order by rnum asc";
+			String sql = "select * from javafx.reply where bnum =? order by rnum asc";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, bnum);
-			ps.executeQuery();
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Reply reply = new Reply(
 						rs.getInt(1),
@@ -141,4 +141,19 @@ public class BoardDao {
 		return null;
 	}
 	// 7. 댓글 삭제(개인적으로)
+	public boolean rdelete(int rnum) {
+		try {
+			// 레코드 삭제 : delate from 테이블명 where 조건
+		String sql = "delete from javafx.reply where rnum = ?";
+		// 2. SQL 조작
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, rnum);
+		// 3. SQL 실행
+		ps.executeUpdate();
+		return true;
+		}catch(Exception e) {System.out.println(e);}
+		return false;}
+	
+	// 8. 조회수 증가
+	
 }
