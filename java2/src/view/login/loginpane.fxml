@@ -19,7 +19,7 @@
       <PasswordField fx:id="txtpw" layoutX="100.0" layoutY="267.0" prefHeight="37.0" prefWidth="200.0" promptText="비밀번호" />
       <Button fx:id="btnlogin" layoutX="114.0" layoutY="343.0" mnemonicParsing="false" onAction="#login" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #00ff0000;" text="로그인">
          <font>
-            <Font size="36.0" />
+            <Font size="43.0" />
          </font>
       </Button>
       <Button fx:id="btnfindid" layoutX="297.0" layoutY="386.0" mnemonicParsing="false" onAction="#accfindid" prefHeight="23.0" prefWidth="88.0" style="-fx-background-color: #00ff0000;" text="아이디찾기" />

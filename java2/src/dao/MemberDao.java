@@ -1,11 +1,17 @@
 package dao;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
+import controller.login.Login;
 import dto.Member;
 
 public class MemberDao { // DB 접근객체
@@ -16,7 +22,7 @@ public class MemberDao { // DB 접근객체
 	// DB 연동할때마다 객체 선언시 불필요
 	
 	public static MemberDao memberDao = new MemberDao();// DB 연동 객체;
-	
+	public static ArrayList<String> pointlist = new ArrayList<>();
 	public MemberDao () {
 		memberDao = this;
 		try {
@@ -163,6 +169,76 @@ public class MemberDao { // DB 접근객체
 		return false;
 	}
 	// 8. 포인트 획득
-	
+	// 8. 로그인시 포인트+10
+		public boolean pointplus() {
+			try {
+				load();
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				
+				String now = Login.member.getMid()+format.format(new Date());
+				System.out.println("now : "+now);
+				String sql = "update member set mpoint=? where mnum=?";
+				ps = con.prepareStatement(sql);
+				boolean pass = false;
+				for(int i=0; i<pointlist.size(); i++) {
+					if(pointlist.get(i).equals(now)) {
+						pass=true;
+					}
+				}
+				if(pass==true) {
+					System.out.println("포인트미지급");
+					ps.setInt(1, Login.member.getMpoint());
+				}else {
+					System.out.println("포인트지급");
+					ps.setInt(1, (Login.member.getMpoint()+10));
+					i = Login.member.getMid()+format.format(new Date());
+					save();
+				}
+				ps.setInt(2, Login.member.getMnum());
+				ps.executeUpdate();
+				
+				
+				return true;
+			} catch(Exception e) {
+				System.out.println("sql 오류 : "+ e);
+			}
+			return false;
+		}
+		
+		public static String i;
+		
+		// 파일 저장
+		public static void save() {
+			
+			try {
+				FileOutputStream outputStream = new FileOutputStream("D:/자바/포인트.txt", true);
+				String a = i+"\n";
+				outputStream.write(a.getBytes());
+				
+			}catch(Exception e) {
+				System.out.println("알림)) 파일 저장 실패(관리자에게 문의)");
+			}
+		}
+		// 파일 불러오기
+		// 8. 게시물불러오기메소드 [프로그램 시작] 파일 --> 리스트
+			public static void load() {
+				try {
+					FileInputStream fileInputStream = new FileInputStream("D:/자바/포인트.txt");
+					byte[] bytes = new byte[1024];
+					fileInputStream.read(bytes);
+					String file = new String(bytes);
+					String[] point = file.split("\n");
+
+					int i=0; // 인덱스용
+					for(String temp : point) { 
+						if(i+1==point.length) break;			
+						pointlist.add(temp);
+						i++; // 인덱스 증가
+					}
+					
+				} catch(Exception e) {
+					System.out.println("알림)) 파일 로드 실패(관리자에게 문의)");
+				}
+			}
 	
 }

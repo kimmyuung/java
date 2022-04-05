@@ -41,6 +41,16 @@ public class Home implements Initializable{
 	@FXML
 	private Label labelupdate;
 	
+	@FXML
+	private Label lblboard;
+	
+	// 梓端
+	public static Home home;
+	// 持失切
+	public Home() {
+		home = this;
+	}
+	
 	public void loadpage(String page) {
 		try {
 			Parent parent = FXMLLoader.load(getClass().getResource(page));
@@ -91,4 +101,7 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 		loadpage("/view/home/update.fxml");
 	}
 	
+	public void accboard(MouseEvent e) {
+		loadpage("/view/board/board.fxml");
+	}
 }

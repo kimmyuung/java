@@ -1,18 +1,21 @@
 package 개인과제구상;
 
+
+
 public class 팀원 extends 팀장{
 String 이름;
 String 특성;
 String 시너지;
-String 효과;
+int 인덱스;
 
-public 팀원(String 이름, String 특성, String 시너지) {
+public 팀원(String 이름, String 특성, String 시너지, int 인덱스) {
 	super();
 	this.이름 = 이름;
 	this.특성 = 특성;
 	this.시너지 = 시너지;
-	
+	this.인덱스 = 인덱스;
 }
+
 팀원 () {}
 public String get이름() {
 	return 이름;
@@ -32,11 +35,6 @@ public String get시너지() {
 public void set시너지(String 시너지) {
 	this.시너지 = 시너지;
 }
-public String get효과() {
-	return 효과;
-}
-public void set효과(String 효과) {
-	this.효과 = 효과;
-}
+
 
 }
