@@ -44,6 +44,9 @@ public class Home implements Initializable{
 	@FXML
 	private Label lblboard;
 	
+	@FXML
+	private Label lblproduct;
+	
 	// 객체
 	public static Home home;
 	// 생성자
@@ -104,4 +107,10 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	public void accboard(MouseEvent e) {
 		loadpage("/view/board/board.fxml");
 	}
+	@FXML // Men을 클릭했을때
+	public void accproduct(MouseEvent E) {
+		loadpage("/view/product/product.fxml");
+	}
+	
+	
 }

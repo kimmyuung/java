@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.product.Productadd">
+   <children>
+      <Label layoutX="41.0" prefHeight="86.0" prefWidth="195.0" text="중고 제품">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="138.0" layoutY="67.0" startX="-100.0" />
+      <TextField fx:id="txtpname" layoutX="69.0" layoutY="172.0" prefHeight="23.0" prefWidth="347.0" promptText="제품명" />
+      <TextArea fx:id="txtpcontent" layoutX="69.0" layoutY="225.0" prefHeight="213.0" prefWidth="347.0" promptText="제품설명" />
+      <TextField fx:id="txtpprice" layoutX="69.0" layoutY="461.0" prefHeight="23.0" prefWidth="347.0" promptText="가격" />
+      <Button fx:id="btnimg" layoutX="566.0" layoutY="165.0" mnemonicParsing="false" onAction="#imgadd" prefHeight="38.0" prefWidth="200.0" text="이미지 등록" />
+      <RadioButton fx:id="opt1" layoutX="78.0" layoutY="525.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="201.0" text=" Men">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="opt2" layoutX="151.0" layoutY="522.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="201.0" text="Women" toggleGroup="$category" />
+      <RadioButton fx:id="opt3" layoutX="78.0" layoutY="551.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="201.0" text="Game" toggleGroup="$category" />
+      <RadioButton fx:id="opt4" layoutX="151.0" layoutY="548.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="201.0" text="Life" toggleGroup="$category" />
+      <ImageView fx:id="image" fitHeight="239.0" fitWidth="292.0" layoutX="570.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnproduct" layoutX="562.0" layoutY="515.0" mnemonicParsing="false" onAction="#add" prefHeight="38.0" prefWidth="292.0" text="제품 등록" />
+      <Button fx:id="btnback" layoutX="562.0" layoutY="564.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="292.0" text="취소 " />
+      <Label layoutX="78.0" layoutY="496.0" prefHeight="15.0" prefWidth="58.0" text="카테고리" />
+      <Label layoutX="69.0" layoutY="149.0" prefHeight="15.0" prefWidth="58.0" text="제품이름" />
+      <Label layoutX="69.0" layoutY="211.0" prefHeight="15.0" prefWidth="82.0" text="제품 상세설명" />
+      <Label layoutX="69.0" layoutY="446.0" prefHeight="15.0" prefWidth="82.0" text="제품 희망가격" />
+      <Label fx:id="txtpath" layoutX="570.0" layoutY="204.0" prefHeight="23.0" prefWidth="366.0" text="이미지 경로" />
+      <Label layoutX="570.0" layoutY="233.0" prefHeight="15.0" prefWidth="96.0" text="이미지 미리보기" />
+   </children>
+</AnchorPane>
