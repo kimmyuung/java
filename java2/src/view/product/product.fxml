@@ -26,10 +26,5 @@
             <VBox fx:id="vbox" prefHeight="539.0" prefWidth="930.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="btnback" layoutX="794.0" layoutY="78.0" mnemonicParsing="false" onAction="#back" prefHeight="49.0" prefWidth="152.0" style="-fx-background-color: #f5e7c0;" text="뒤로 가기" textFill="#510b0b">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

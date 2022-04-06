@@ -54,14 +54,14 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="402.0" text="Sell">
+            <Label fx:id="lblproduct" layoutX="16.0" layoutY="402.0" onMouseClicked="#accproduct" text="Sell">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
             <Line endX="96.5" layoutX="117.0" layoutY="367.0" startX="-100.0" />
             <Line endX="100.0" layoutX="114.0" layoutY="427.0" startX="-100.0" />
-            <Label fx:id="lblproduct" onMouseClicked="#accproduct" layoutX="16.0" layoutY="427.0" text="Men" />
+            <Label layoutX="16.0" layoutY="427.0"  text="Men" />
             <Label layoutX="49.0" layoutY="427.0" text="Women" />
             <Label layoutX="106.0" layoutY="427.0" text="Game" />
             <Label layoutX="159.0" layoutY="427.0" text="Life" />

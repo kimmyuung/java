@@ -107,7 +107,7 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	public void accboard(MouseEvent e) {
 		loadpage("/view/board/board.fxml");
 	}
-	@FXML // Men을 클릭했을때
+	@FXML // Sell을 클릭했을때
 	public void accproduct(MouseEvent E) {
 		loadpage("/view/product/product.fxml");
 	}

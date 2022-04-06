@@ -240,5 +240,16 @@ public class MemberDao { // DB 접근객체
 					System.out.println("알림)) 파일 로드 실패(관리자에게 문의)");
 				}
 			}
-	
+			public String getmid(int mnum) {
+				try {
+				String sql = "select mid from javafx.member where mnum =  ?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, mnum);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return rs.getString(1);
+				}
+				}catch(Exception e) {System.out.println(e);}
+				return null;
+			}
 }
