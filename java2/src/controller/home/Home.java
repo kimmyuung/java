@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -23,6 +24,9 @@ public class Home implements Initializable{
 	@FXML
 	private Label loginId;
 	
+	@FXML
+    private ImageView image2;
+    
 	@FXML
 	private Label labelpoint;
 	
@@ -97,6 +101,7 @@ public class Home implements Initializable{
 	
 	@Override
 public void initialize(URL arg0, ResourceBundle arg1) {
+	loadpage("/view/chatting.fxml");
 	loginId.setText(Login.member.getMid() + "´Ô");
 	labelpoint.setText("Æ÷ÀÎÆ® : "+Login.member.getMpoint() + "Á¡");
 }
@@ -144,6 +149,10 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	public void accproduct(MouseEvent E) {
 		loadpage("/view/product/product.fxml"); category = "all";
 	}
-	
+	 @FXML
+	    void backhome(MouseEvent event) {
+		loadpage("/view/home/home.fxml");
+	    }
+
 	
 }
