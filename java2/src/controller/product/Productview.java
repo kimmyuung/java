@@ -53,6 +53,30 @@ public class Productview implements Initializable{
 
     @FXML
     private Label txtpactivation;
+    @FXML
+    private Button btnactivation;
+
+    @FXML
+    void activation(ActionEvent event) {
+    	if(btnactivation.getText().equals("거래 중")) {
+    		txtpactivation.setText("상태 : 거래 중"); btnactivation.setText("판매 완료"); // 컨트롤의 값 변경 
+    		ProductDao.produtctDao.activation(Productcontrol.select.getPnum() ); // DB 상태 변경
+    		Productcontrol.select.setPactivation(2); // 선택된 제품의 상태 변경
+    		return;
+    	}
+    	if(btnactivation.getText().equals("판매 완료")) {
+    		txtpactivation.setText("상태 : 판매 완료"); btnactivation.setText("판매 중");
+    		ProductDao.produtctDao.activation(Productcontrol.select.getPnum() );
+    		Productcontrol.select.setPactivation(3);
+    		return;
+    	}
+    	if(btnactivation.getText().equals("판매 중")) {
+    		txtpactivation.setText("상태 : 판매 중"); btnactivation.setText("거래 중");
+    		ProductDao.produtctDao.activation(Productcontrol.select.getPnum() );
+    		Productcontrol.select.setPactivation(1);
+    		return;
+    	}
+    }
 
     @FXML
     void back(ActionEvent event) {
@@ -86,9 +110,18 @@ public class Productview implements Initializable{
     	txtpprice.setText(decimalFormat.format(product.getPprice()));
     	txtmid.setText("등록 회원 : " + product.getMnum());
     	txtpdate.setText("제품 등록일 : " + product.getPdate());
-    	if(product.getPactivation() == 1) {txtpactivation.setText("상태 : 판매중");}
-    	if(product.getPactivation() == 2) {txtpactivation.setText("상태 : 거래중");}
-    	if(product.getPactivation() == 3) {txtpactivation.setText("상태 : 판매완료");}
+    	if(product.getPactivation() == 1) {
+    		txtpactivation.setText("상태 : 판매 중");
+    		btnactivation.setText("거래 중");
+    		}
+    	if(product.getPactivation() == 2) {
+    		txtpactivation.setText("상태 : 거래 중");
+    		btnactivation.setText("판매 완료");
+    		}
+    	if(product.getPactivation() == 3) {
+    		txtpactivation.setText("상태 : 판매 완료");
+    		btnactivation.setText("판매 중");
+    		}
     	// 회원번호를 이용한 회원 id 찾기 [ Dao에서 메소드 이용 ] 
     	txtmid.setText("제품 등록회원 : " + MemberDao.memberDao.getmid(product.getMnum() ) );
     	txttitle.setEditable(false);

@@ -22,5 +22,10 @@
          </font>
       </Text>
       <BorderPane fx:id="borderpane" layoutX="76.0" layoutY="186.0" prefHeight="411.0" prefWidth="402.0" />
+      <ImageView fitHeight="496.0" fitWidth="614.0" layoutX="772.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/62583369e2c17e920f4e15d2bce932b1.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

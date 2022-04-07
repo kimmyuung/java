@@ -61,10 +61,10 @@
             </Label>
             <Line endX="96.5" layoutX="117.0" layoutY="367.0" startX="-100.0" />
             <Line endX="100.0" layoutX="114.0" layoutY="427.0" startX="-100.0" />
-            <Label layoutX="16.0" layoutY="427.0"  text="Men" />
-            <Label layoutX="49.0" layoutY="427.0" text="Women" />
-            <Label layoutX="106.0" layoutY="427.0" text="Game" />
-            <Label layoutX="159.0" layoutY="427.0" text="Life" />
+            <Label fx:id="lblproduct1" onMouseClicked="#accproduct1" layoutX="16.0" layoutY="427.0"  text="Men" />
+            <Label fx:id="lblproduct2" onMouseClicked="#accproduct2" layoutX="49.0" layoutY="427.0" text="Women" />
+            <Label fx:id="lblproduct3" onMouseClicked="#accproduct3" layoutX="106.0" layoutY="427.0" text="Game" />
+            <Label fx:id="lblproduct4" onMouseClicked="#accproduct4" layoutX="159.0" layoutY="427.0" text="Life" />
             <Label fx:id="lblboard" layoutX="18.0" layoutY="458.0" onMouseClicked="#accboard" text="Community">
                <font>
                   <Font size="18.0" />

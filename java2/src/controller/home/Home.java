@@ -47,6 +47,39 @@ public class Home implements Initializable{
 	@FXML
 	private Label lblproduct;
 	
+	@FXML
+    private Label lblproduct1;
+
+    @FXML
+    private Label lblproduct2;
+
+    @FXML
+    private Label lblproduct3;
+
+    @FXML
+    private Label lblproduct4;
+    
+    public static String category;
+    
+    @FXML
+    void accproduct1(MouseEvent event) { // 남성 의류 선택
+    	loadpage("/view/product/product.fxml"); category = "Men";
+    }
+
+    @FXML
+    void accproduct2(MouseEvent event) { // 여성 의류 선택
+    	loadpage("/view/product/product.fxml"); category = "Women";
+    }
+
+    @FXML
+    void accproduct3(MouseEvent event) { // 게임기기 선택
+    	loadpage("/view/product/product.fxml"); category = "Game";
+    }
+
+    @FXML
+    void accproduct4(MouseEvent event) { // 생활 선택
+    	loadpage("/view/product/product.fxml"); category = "Life";
+    }
 	// 객체
 	public static Home home;
 	// 생성자
@@ -109,7 +142,7 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	}
 	@FXML // Sell을 클릭했을때
 	public void accproduct(MouseEvent E) {
-		loadpage("/view/product/product.fxml");
+		loadpage("/view/product/product.fxml"); category = "all";
 	}
 	
 	
