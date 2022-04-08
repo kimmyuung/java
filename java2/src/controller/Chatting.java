@@ -75,6 +75,8 @@ public class Chatting implements Initializable{
 	    	roomtable.setOnMouseClicked( e -> {
 	    	selectroom = roomtable.getSelectionModel().getSelectedItem();
 	    	
+	    	System.out.println(selectroom.getRoip()+selectroom.getRonum());
+	    	
 	    	lblselect.setText("현재 선택된 방 : " + selectroom.getRoname());
 	    	btnconnect.setDisable(false);
 	    	}	);

@@ -91,7 +91,7 @@ public class RoomDao {
 	public ArrayList<Roomlive> getroomlivelist(int ronum) {
 		ArrayList<Roomlive> roomlivelist = new ArrayList<>();
 		try {
-			String sql = "select * from javafx.liveroom where ronum = ?";
+			String sql = "select * from javafx.roomlive where ronum = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, ronum);
 			rs = ps.executeQuery();
