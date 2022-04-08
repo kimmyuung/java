@@ -103,5 +103,40 @@ public class RoomDao {
 		} catch(Exception e) {System.out.println(e);}
 		return null;
 	}
+	// 채팅방 접속 명단 삭제
+	public boolean roomlivedelete(String mid) {
+		try {
+			String sql = "delete from roomlive where mid = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			ps.executeUpdate();
+			return true;
+		} catch(Exception e) {System.out.println(e);}
+		return false;
+	}
+	// 채팅방 삭제(조건 : 해당 채팅방에 접속명단이 0 이면)
+	public boolean roomdelete(int ronum) {
+		// 만약에 해당 방번호로 roomlive로 검색했을때
+			// 검색결과 존재하면 방 삭제 X
+			// 검색결과 없으면 방 삭제 O
+		try {
+			String sql = "select * from javafx.roomlive where ronum = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, ronum);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return false;
+			}
+			else {
+				String sql2 = "delete from javafx.room where ronum = ?";
+				ps = con.prepareStatement(sql2);
+				ps.setInt(1, ronum);
+				ps.executeUpdate();
+				return true;
+			}
+		} catch(Exception e) {System.out.println(e);}
+		return false;
+	}
 	
+	// 
 }
