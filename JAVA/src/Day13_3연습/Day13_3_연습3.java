@@ -22,7 +22,7 @@ public class Day13_3_연습3 {
 			int eday = calendar.getActualMaximum(Calendar.DAY_OF_MONTH); // 달력이 최대 몇일인지 설정
 			System.out.println("*****" + year + "년 " + month + "월 *****"); 
 			System.out.println("일\t월\t화\t수\t목\t금\t토");
-			for(int i = 1; i < sweek; i++) { // 주를 위해 설정
+			for(int i = 1; i < sweek; i++) { // 1일의 날짜를 띄우기 위해 사용
 				System.out.print("\t"); // 
 			}
 			for(int i = 1; i <= eday; i++) { // 일 설정

@@ -1,8 +1,7 @@
-package Day14;
+package Day14_연습;
 
 public class Sound extends Thread{
-	
-	static boolean stop = true; // 실행여부
+static boolean stop = true; // 실행여부
 	
 	public Sound() {
 	

@@ -1,11 +1,12 @@
-package Day14;
+package Day14_연습;
 
 import java.util.Scanner;
 
-public class Day14_플레이어 {
-	
-	// 예제  [ 1. 소리재생/중지 2.영상재생/중지 ]
-	public static void main(String[] args) {
+import Day14.Sound;
+import Day14.Video;
+
+public class Day14_연습3 {
+public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in); // 입력객체
 		

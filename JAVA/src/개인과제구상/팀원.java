@@ -18,6 +18,13 @@ public 팀원(String 팀원이름, String 팀원특성, String 팀원시너지, int 팀원번호) {
 	this.팀원번호 = 팀원번호;
 }
 
+public 팀원(String 팀원이름, String 팀원특성, String 팀원시너지) {
+	super();
+	this.팀원이름 = 팀원이름;
+	this.팀원특성 = 팀원특성;
+	this.팀원시너지 = 팀원시너지;
+}
+
 public String get팀원이름() {
 	return 팀원이름;
 }
