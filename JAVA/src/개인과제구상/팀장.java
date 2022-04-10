@@ -1,6 +1,6 @@
 package °³ÀÎ°úÁ¦±¸»ó;
 
-public class ÆÀÀå {
+public class ÆÀÀå extends ÆÀ¿ø{
 private String ÆÀÀåÀÌ¸§;
 private String ÆÀÀåÈ¿°ú;
 

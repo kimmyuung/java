@@ -74,7 +74,7 @@ public class 이젠드래프트_메인 {// c s
 						System.out.print("\n 메뉴선택 >>");
 						int ch3 = sc.nextInt();
 						if(ch3 == 1) {
-							for(int i = 0; i < 4; i++) {
+							for(int i = 0; i < 5; i++) {
 							String select = con.팀원뽑기();
 							System.out.println(select + "을 팀으로 뽑으시겠습니까?");
 							System.out.println("1. 예 2. 아니오");
@@ -86,12 +86,15 @@ public class 이젠드래프트_메인 {// c s
 								}
 							}
 							else if(team.equals("2") || team.equals("아니오")) {
-								select = con.팀원뽑기();
+								// 뒤로가기는 따로 안해도될듯??
 							}
 						}
 						
-						con.시너지판단();
-						con.효과판단();
+						int 시너지점수 = con.시너지판단();
+						int 효과점수 = con.효과판단();
+						int 게임점수 = 시너지점수 + 효과점수;
+						System.out.println("당신의 점수는 : " + 게임점수 +" 점 입니다.");
+						
 						}
 						else if(ch3 == 2) {
 							for(팀원 temp : con.팀원선택리스트) {
