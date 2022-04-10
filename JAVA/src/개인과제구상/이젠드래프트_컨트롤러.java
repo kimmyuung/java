@@ -94,13 +94,33 @@ public class 이젠드래프트_컨트롤러 {
 		}
 		// 열정 효과 판단
 		// 소통 효과 판단
+		for(팀원 temp : 팀원선택리스트) {
+			if(!temp.get팀원특성().equals("소통")) {
+				score -= 3;
+			}
+		}
 		// 커피애호가 효과 판단
 		// 만능 효과 판단
+		for(팀원 temp : 팀원선택리스트) {
+			if(temp.get팀원특성().equals("만능")) {
+				score += 1;
+			}
+		}
 		// 애연가 효과 판단
+		for(팀원 temp : 팀원선택리스트) {
+			if(!temp.get팀원특성().equals("애연가")) {
+				score -= 2;
+			}
+		}
 		// 노력가 효과 판단
 		// 부관 효과 판단
 		// 이타적 효과 판단
 		// 독보적 효과 판단
+		for(팀원 temp : 팀원선택리스트) {
+			if(temp.get팀원특성().equals("독보적")) {
+				score += 2;
+			}
+		}
 		return score;
 	}
 
