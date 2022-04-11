@@ -52,6 +52,7 @@ public class 이젠드래프트_컨트롤러 {
 				String 총내용 = temp.get팀원번호() + "," + temp.get팀원이름() + "," + temp.get팀원특성() + "," + temp.get팀원시너지()
 						+ "\n";
 				fileOutputStream.write(총내용.getBytes());
+				fileOutputStream.close();
 			}
 		} catch (Exception e) {
 			System.out.println("팀원 저장 오류 발생!" + e);
@@ -64,11 +65,13 @@ public class 이젠드래프트_컨트롤러 {
 			byte[] bytes = new byte[1000];
 			fileInputStream.read(bytes);
 			String 열 = new String(bytes);
+			fileInputStream.close();
 			String[] 줄나누기 = 열.split("\n");
 			for (String temp : 줄나누기) {
 				String[] field = temp.split(",");
 				팀원 팀원 = new 팀원(field[0], field[1], field[2], Integer.parseInt(field[3]));
 				팀원리스트.add(팀원);
+				
 				return;
 			}
 		} catch (Exception e) {
@@ -312,6 +315,7 @@ public class 이젠드래프트_컨트롤러 {
 				String 점수 = name + ","+ Integer.toString(Score)+ "\n";
 				 // 게임점수 저장하면 될듯
 				fileOutputStream.write(점수.getBytes());
+				fileOutputStream.close();
 			}
 		} catch (Exception e) {
 			System.out.println("점수 저장 오류 발생!" + e);
@@ -325,6 +329,7 @@ public class 이젠드래프트_컨트롤러 {
 			fileInputStream.read(bytes);
 			String 열 = new String(bytes);
 			String[] 줄나누기 = 열.split("\n");
+			fileInputStream.close();
 			for (String temp : 줄나누기) {
 				String[] field = temp.split(",");
 				점수 점수 = new 점수(field[0], Integer.parseInt(field[1]) );
