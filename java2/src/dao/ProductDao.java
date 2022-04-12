@@ -44,11 +44,15 @@ public class ProductDao {
 		ArrayList<Product> productlist = new ArrayList<>(); // 리스트 선언 	
 		try {
 			String sql = null;
-			if(search == null) {
+			if(category == null && search == null) {
+				sql = "select * from javafx.product";
+				ps = conn.prepareStatement(sql);
+			}
+			else if(search == null) {
 			sql = "select * from javafx.product where pcategory = ? order by pnum desc";	// SQL 작성
 			ps = conn.prepareStatement(sql);			// SQL 연결
 			ps.setString(1, category); }
-			if (category.equals("all")) {
+			else if (category == null) {
 				sql = "select * from javafx.product";
 				ps = conn.prepareStatement(sql);
 			}
@@ -134,4 +138,6 @@ public class ProductDao {
 		} catch(Exception e) {System.out.println("sql 오류 : " + e);}
 		return false;
 	}
+	// 내가 등록한 상품 보기
+	
 }

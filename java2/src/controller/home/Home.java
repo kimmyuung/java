@@ -63,6 +63,13 @@ public class Home implements Initializable{
     @FXML
     private Label lblproduct4;
     
+    @FXML
+    private Label labelrecord;
+    
+    @FXML
+    private Label labelmy;
+    
+    
     public static String category;
     
     @FXML
@@ -83,6 +90,15 @@ public class Home implements Initializable{
     @FXML
     void accproduct4(MouseEvent event) { // 생활 선택
     	loadpage("/view/product/product.fxml"); category = "Life";
+    }
+   
+    @FXML
+    void accrecord(MouseEvent event) {
+    	loadpage("/view/record.fxml");
+    }
+    @FXML
+    void mycontext(MouseEvent e) {
+    	loadpage("/view/mine.fxml");
     }
 	// 객체
 	public static Home home;
@@ -147,7 +163,7 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	}
 	@FXML // Sell을 클릭했을때
 	public void accproduct(MouseEvent E) {
-		loadpage("/view/product/product.fxml"); category = "all";
+		loadpage("/view/product/product.fxml"); category = null; 
 	}
 	 @FXML
 	    void backhome(MouseEvent event) {

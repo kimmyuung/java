@@ -1,11 +1,20 @@
 package dao;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import controller.login.Login;
 import dto.Board;
+import dto.Member;
 import dto.Reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +28,7 @@ public class BoardDao {
 	private PreparedStatement ps; // 2. 연결된 DB내 SQL 조작 인터페이스
 	private ResultSet rs; // 3. SQL 결과 레코드
 	public static BoardDao boardDao = new BoardDao(); // DB 연동 객체
-	
+	public static ArrayList<String> viewlist = new ArrayList<String>();
 	public BoardDao() {// 생성자에서 연동하는 이유 : 객체 생성시 바로 연동 하기 위해
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -154,8 +163,90 @@ public class BoardDao {
 		}catch(Exception e) {System.out.println(e);}
 		return false;}
 	
-	// 8. 조회수 증가
+	// 8. 조회수 증가 -- 구현 (저장, 로드, 판단 구현 해야 할듯...)
 	
+	public boolean viewplus() {
+		load();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String now = Login.member.getMid()+","+format.format(new Date())+","+controller.board.Board.board.getBnum();
+		
+		try {
+			if(controller.board.Board.board != null) {
+				boolean p = false;
+				for(int i=0; i<viewlist.size(); i++) {
+					if(viewlist.get(i).equals(now)) {
+						System.out.println(viewlist.get(i));
+						p=true;
+					}
+				}
+				if(p) {
+					System.out.println("조회수 미증가");
+					return false;
+				}else {
+					controller.board.Board.board.setBview(controller.board.Board.board.getBview() + 1);
+					save();
+					String sql = "update javafx.board set bview=? where bnum=?";
+					ps = conn.prepareStatement(sql);
+					ps.setInt(1, controller.board.Board.board.getBview());
+					ps.setInt(2, controller.board.Board.board.getBnum());
+					ps.executeUpdate();
+					System.out.println("조회수 증가");
+					return true;
+				}	
+			}
+		} catch(Exception e) {System.out.println("조회 증가 오류 " + e);}
+		return false;
+	}
+	
+	public void save() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+		FileOutputStream fileOutputStream = new FileOutputStream("D:/자바/view.txt", true);
+		
+			String 내용 = Login.member.getMid() +","+ format.format(new Date()) +","+ controller.board.Board.board.getBnum() + "\n";
+			fileOutputStream.write(내용.getBytes());
+			fileOutputStream.close();
+		}catch(Exception e) {System.out.println("저장 오류 발생 ! " + e);}
+	}
+	
+	public void load() {
+		try {
+				FileInputStream fileInputStream = new FileInputStream("D:/자바/view.txt");
+				byte[] bytes = new byte[1024];
+				fileInputStream.read(bytes);
+				String file = new String(bytes);
+				String[] point = file.split("\n");
+
+				int i=0; // 인덱스용
+				for(String temp : point) { 
+					if(i+1==point.length) {break;}
+					String field = point[0] + point[1] + point[2];
+					viewlist.add(field);
+					i++; // 인덱스 증가
+				}
+				fileInputStream.close(); 
+				
+			} catch(Exception e) {
+				System.out.println("알림)) 파일 로드 실패(관리자에게 문의) " + e);
+			}
+		
+	}
+	// 9. 전체 수 반환
+	public Map<String, Integer> bdatetotal(String table, String date) {
+		try {
+			Map<String, Integer> map = new HashMap<>();
+		String sql = "select substring_index(" + date + " , ' ' , 1 )  , count(*) from" + table + "group by substring_index( + " + date +", ' ' , 1 )";
+		// 날짜랑 시간이 같이 존재하기 때문에 날짜랑 시간 분리 [ 공백 기준 ]
+		ps = conn.prepareStatement(sql);
+		rs = ps.executeQuery();
+		while(rs.next()) {
+			map.put(rs.getString(1), rs.getInt(2));
+			
+			return map;
+		}}catch(Exception e) {}
+		return null;
+	}
 	
 	
 }

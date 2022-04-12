@@ -176,7 +176,9 @@ public class Boardview implements Initializable {
     
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
+	
 	replytableshow();
+	BoardDao.boardDao.viewplus();
 	
 	dto.Board board = controller.board.Board.board; // board컨트롤내 테이블에서 선택된 객체 호출
 	
