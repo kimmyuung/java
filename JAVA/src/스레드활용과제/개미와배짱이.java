@@ -52,6 +52,7 @@ public void run() {
 		try {
 			System.out.println(context[i]);
 			Thread.sleep(2000);
+			if(context[i].length() == context.length) break;
 		} 
 		catch (InterruptedException e) {
 			

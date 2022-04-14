@@ -23,6 +23,7 @@ public class Buy extends Thread {
 			if(Controller.경고횟수>=4) { // 경고횟수 4회 이상시 스레드 종료시킴
 				break;
 			}
+			Thread 구매 = null;
 			if(음료이름=="콜라") { // Buy 객체 생성시 생성자에 따라 음료제어
 				Random random = new Random(); // 랜덤객체 생성	
 				int buy = random.nextInt(2)+1; // 컴퓨터가 구매할 갯수 랜덤으로 생성

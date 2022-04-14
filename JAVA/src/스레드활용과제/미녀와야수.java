@@ -45,6 +45,7 @@ public void run() {
 		try {
 			System.out.println(context2[i]);
 			Thread.sleep(2000);
+			if(context2[i].length() == context2.length) break;
 		} 
 		catch (InterruptedException e) {
 			
