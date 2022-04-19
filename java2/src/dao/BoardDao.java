@@ -32,7 +32,7 @@ public class BoardDao {
 	public BoardDao() {// 생성자에서 연동하는 이유 : 객체 생성시 바로 연동 하기 위해
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx?serverTimezone=UTC",
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx?serverTimezone=Asia/Seoul ",
 				"root", "1234"); // jdbc:mysql:ip주소/port번호
 	} catch(Exception e) {System.out.println(e);}	
 	}
